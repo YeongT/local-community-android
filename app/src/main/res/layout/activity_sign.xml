@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignUpActivity">
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="95sp"
+
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="30sp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_gravity="bottom"
+            android:background="@color/main"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ntsblack"
+            android:text="@string/register"
+            android:textColor="@color/black"
+            android:textSize="45sp" />
+    </FrameLayout>
+
+    <EditText
+
+        android:id="@+id/signup_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50sp"
+        android:layout_marginTop="100sp"
+        android:layout_marginRight="50sp"
+        android:autofillHints="false"
+        android:background="@drawable/round_edittext"
+        android:elevation="8dp"
+        android:hint="@string/emailEnter"
+        android:maxLines="1"
+        android:padding="15dp" />
+
+
+    <EditText
+        android:id="@+id/signup_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50sp"
+        android:layout_marginTop="50sp"
+        android:layout_marginRight="50sp"
+        android:autofillHints="false"
+        android:background="@drawable/round_edittext"
+        android:elevation="8dp"
+        android:hint="@string/pwdEnter"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/signup_pwd2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50sp"
+        android:layout_marginTop="50sp"
+        android:layout_marginRight="50sp"
+        android:background="@drawable/round_edittext"
+        android:elevation="8dp"
+        android:hint="@string/pwdReEnter"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/signup_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50sp"
+        android:layout_marginTop="50sp"
+        android:layout_marginRight="50sp"
+        android:background="@drawable/round_edittext"
+        android:elevation="8dp"
+        android:hint="@string/nickEnter"
+        android:maxLines="1"
+        android:padding="15dp" />
+
+    <Button
+        android:id="@+id/enroll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="140sp"
+        android:layout_marginTop="100sp"
+        android:layout_marginRight="140sp"
+        android:background="@drawable/round_edittext"
+        android:backgroundTint="@color/black"
+        android:padding="15dp"
+        android:text="@string/complete"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+    i love seongho
+
+</LinearLayout>
