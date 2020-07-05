@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -35,7 +36,9 @@
                 android:textSize="45sp" />
         </FrameLayout>
 
+
         <EditText
+
 
             android:id="@+id/signup_email"
             android:layout_width="match_parent"
@@ -47,41 +50,65 @@
             android:background="@drawable/round_edittext"
             android:elevation="8dp"
             android:hint="@string/emailEnter"
-            android:singleLine="true"
             android:nextFocusDown="@id/signup_pwd"
-            android:padding="15dp" />
+            android:padding="15dp"
+            android:singleLine="true" />
 
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="35sp"
+            android:layout_marginTop="40sp"
+            android:layout_marginRight="35sp"
+            card_view:cardCornerRadius="25dp"
+            card_view:cardElevation="8dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:contentPaddingBottom="3sp"
+            card_view:contentPaddingTop="3sp">
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true"
+
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/signup_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints="false"
+                    android:background="@drawable/round_edittext"
+                    android:hint="@string/pwdEnter"
+                    android:inputType="textPassword"
+                    android:maxLength="15"
+                    android:nextFocusDown="@id/signup_name"
+                    android:padding="13sp"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <EditText
-            android:id="@+id/signup_pwd"
+            android:id="@+id/signup_phonenum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50sp"
-            android:layout_marginTop="50sp"
-            android:layout_marginRight="50sp"
-            android:autofillHints="false"
-            android:background="@drawable/round_edittext"
-            android:elevation="8dp"
-            android:hint="@string/pwdEnter"
-            android:inputType="textPassword"
-            android:singleLine="true"
-            android:nextFocusDown="@id/signup_pwd2"
-            android:padding="15dp" />
-
-        <EditText
-            android:id="@+id/signup_pwd2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50sp"
-            android:layout_marginTop="50sp"
+            android:layout_marginTop="40sp"
             android:layout_marginRight="50sp"
             android:background="@drawable/round_edittext"
             android:elevation="8dp"
-            android:hint="@string/pwdReEnter"
-            android:inputType="textPassword"
-            android:singleLine="true"
-            android:nextFocusDown="@id/signup_name"
-            android:padding="15dp" />
+            android:hint="@string/phonenum"
+            android:nextFocusDown="@id/enroll_btn"
+            android:padding="15dp"
+            android:singleLine="true" />
 
         <EditText
             android:id="@+id/signup_name"
@@ -93,9 +120,69 @@
             android:background="@drawable/round_edittext"
             android:elevation="8dp"
             android:hint="@string/nickEnter"
-            android:singleLine="true"
             android:nextFocusDown="@id/enroll_btn"
-            android:padding="15dp" />
+            android:padding="15dp"
+            android:singleLine="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+
+            >
+
+            <CheckBox
+                android:id="@+id/signup_chk_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100sp"
+                android:layout_marginRight="100sp"
+                android:hint="남"
+
+                />
+
+            <CheckBox
+                android:id="@+id/signup_chk_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="여"
+
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal"
+
+            >
+
+            <Spinner
+                android:layout_marginLeft="40sp"
+                android:id="@+id/signup_spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Spinner
+                android:layout_marginLeft="50sp"
+                android:id="@+id/signup_spinner2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Spinner
+                android:layout_marginLeft="50sp"
+                android:id="@+id/signup_spinner3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <Spinner
+                android:layout_marginLeft="50sp"
+                android:id="@+id/signup_spinner4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/enroll_btn"
@@ -110,6 +197,7 @@
             android:text="@string/complete"
             android:textColor="@color/white"
             android:textSize="20sp" />
+
 
     </LinearLayout>
 

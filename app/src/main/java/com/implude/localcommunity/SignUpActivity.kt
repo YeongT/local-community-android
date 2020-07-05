@@ -30,7 +30,7 @@ class SignUpActivity : AppCompatActivity() {
         enroll_btn.setOnClickListener {
             val email = signup_email.text.toString()
             val password1 = signup_pwd.text.toString()
-            val password2 = signup_pwd2.text.toString()
+
             val nickname = signup_name.text.toString()
 
 //            if (!Pattern.matches("^[_a-zA-Z0-9-\\.]+@[\\.a-zA-Z0-9-]+\\.[a-zA-Z]+\$", email)) // 이메일

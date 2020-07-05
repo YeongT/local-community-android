@@ -3,12 +3,13 @@
     <string name="register">회원가입</string>
     <string name="emailEnter">이메일 입력</string>
     <string name="pwdEnter">비밀번호 입력</string>
-    <string name="pwdReEnter">비밀번호 재입력</string>
-    <string name="nickEnter">닉네임 입력</string>
+    <string name="nickEnter">이름 입력</string>
     <string name="complete">등록</string>
     <string name="home">홈</string>
     <string name="search_title">검색하기</string>
     <string name="search_subcontent">원하는 커뮤니티 찾아 삼만리</string>
     <string name="login" >로그인</string>
     <string name="search_content">우리 한 번 커뮤니티 찾아봅시다</string>
+    <string name="email_chk">이메일 인증 여부</string>
+    <string name="phonenum">전화 번호 입력</string>
 </resources>
