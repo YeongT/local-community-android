@@ -16,4 +16,14 @@
         android:fontStyle="normal"
         android:fontWeight="400"></font>
 
+    <font
+        android:font="@font/ntslight"
+        android:fontStyle="normal"
+        android:fontWeight="400"></font>
+
+    <font
+        android:font="@font/ntsmedium"
+        android:fontStyle="normal"
+        android:fontWeight="400"></font>
+
 </font-family>
