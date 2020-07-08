@@ -9,7 +9,6 @@
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="95sp"
-
         android:layout_marginStart="30sp"
         android:layout_marginTop="30sp">
 
@@ -30,47 +29,55 @@
     </FrameLayout>
 
     <EditText
+        android:id="@+id/Login_EditText_Id"
         android:layout_width="302dp"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="90dp"
         android:background="@drawable/round"
-        android:elevation="8dp"
-        android:hint="아이디"
+        android:elevation="6dp"
+        android:hint="@string/id"
+        android:maxLines="1"
+        android:paddingStart="19dp"
+        android:paddingEnd="0dp"
         android:textColorHint="#D4D4D4"
-        android:paddingLeft="19dp"
-        android:maxLines="1"/>
+        android:textSize="12sp" />
 
     <EditText
+        android:id="@+id/Login_EditText_Pwd"
         android:layout_width="302dp"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
         android:background="@drawable/round"
-        android:elevation="8dp"
+        android:elevation="6dp"
         android:hint="비밀번호"
-        android:textColorHint="#D4D4D4"
         android:maxLines="1"
-        android:paddingLeft="19dp" />
+        android:paddingStart="19dp"
+        android:paddingEnd="0dp"
+        android:textColorHint="#D4D4D4"
+        android:textSize="12sp" />
 
     <TextView
+        android:id="@+id/Login_TextView_FindId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="55dp"
-        android:text="계정을 까먹으셨나요?"
+        android:layout_gravity="end"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="55dp"
+        android:text="@string/did_you_forget"
         android:textColor="#d4d4d4"
-        android:textSize="13sp" />
+        android:textSize="15sp" />
 
     <Button
+        android:id="@+id/Login_Button_LoginButton"
         android:layout_width="192dp"
         android:layout_height="61dp"
         android:layout_gravity="center"
         android:layout_marginTop="71dp"
         android:background="@drawable/round_black"
         android:elevation="8dp"
-        android:text="로그인"
+        android:text="@string/login"
         android:textColor="#ffffff"
         android:textSize="15sp" />
 
@@ -84,24 +91,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="계정이 없으신가요?"
+            android:text="@string/dont_you_have_account"
             android:textColor="#D4D4D4"
-            android:textSize="15sp"
-           />
+            android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/Login_TextView_Register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="23dp"
-            android:text="회원가입"
-            android:textColor="#000000"
-            android:textSize="15sp"
+            android:layout_marginStart="23dp"
             android:clickable="true"
-            android:id="@+id/login_register"/>
+            android:focusable="true"
+            android:text="@string/register"
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/Login_Button_GoogleLogin"
         android:layout_width="271dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
@@ -111,7 +119,8 @@
         android:drawablePadding="-30dp"
         android:elevation="8dp"
         android:gravity="center"
-        android:paddingLeft="30dp"
-        android:text="구글 계정으로 로그인" />
+        android:paddingStart="30dp"
+        android:paddingEnd="0dp"
+        android:text="@string/google_login" />
 
 </LinearLayout>

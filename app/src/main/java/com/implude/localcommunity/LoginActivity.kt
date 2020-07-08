@@ -1,8 +1,8 @@
 package com.implude.localcommunity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -11,9 +11,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-      login_register.setOnClickListener(({
-          val intent = Intent(this, SignUpActivity::class.java)
-          startActivity(intent)
-      }))
+        Login_TextView_Register.setOnClickListener(({
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }))
     }
 }
