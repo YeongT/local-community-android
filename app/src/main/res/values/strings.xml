@@ -8,9 +8,6 @@
     <string name="complete">등록</string>
     <string name="home">홈</string>
     <string name="search_title">검색하기</string>
-    <string name="search_sub_content">원하는 커뮤니티 찾아 삼만리</string>
-    <string name="login">로그인</string>
-    <string name="search_content">우리 한 번 커뮤니티 찾아봅시다</string>
     <string name="no_community">소속된 커뮤니티가 없어요…</string>
     <string name="did_you_forget">계정을 까먹으셨나요?</string>
     <string name="dont_you_have_account">계정이 없으신가요?</string>
@@ -27,4 +24,12 @@
     <string name="upload">게시</string>
     <string name="enter_content">내용을 입력하세요.</string>
     <string name="enter_title">제목을 입력하세요.</string>
+    <string name="search_subcontent">원하는 커뮤니티 찾아 삼만리</string>
+    <string name="login">로그인</string>
+    <string name="search_content">우리 한 번 커뮤니티 찾아봅시다</string>
+    <string name="search_edittext_hint">검색어를 입력해주세요.</string>\
+    <string name="search_button_content">내용</string>
+    <string name="search_button_tag">태그</string>
+    <string name="search_button_title">제목</string>
+    <string name="search_button_writer">게시자</string>
 </resources>
