@@ -57,7 +57,6 @@ class LoginActivity : AppCompatActivity() {
                         call: Call<UserLoginRespond>,
                         response: Response<UserLoginRespond>
                     ) {
-                        Log.e("Login", response.body().toString())
                         when (response.code()) {
                             200 -> {
                                 val temp = Toast.makeText(
