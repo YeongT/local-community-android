@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20sp"
                 android:layout_gravity="bottom"
+                android:layout_marginTop="-20dp"
                 android:background="@color/main"
                 android:contentDescription="@null" />
 
@@ -47,174 +48,224 @@
             android:src="@drawable/notice" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/Home_ImageView_Empty"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/Home_RecyclerView_newsFeedList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/Home_RelativeLayout_TabBar"
+        android:layout_below="@id/Home_Title"
+        android:layout_marginTop="20dp"
+        android:background="@color/white" />
+
+    <RelativeLayout
+        android:id="@+id/Home_RelativeLayout_No_Community"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/Home_Title"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="40dp"
-        android:contentDescription="@null"
-        android:src="@drawable/community_empty" />
-
-    <TextView
-        android:id="@+id/Home_TextView_noCommunity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Home_ImageView_Empty"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-35dp"
-        android:fontFamily="@font/ntsbold"
-        android:text="@string/no_community"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/Home_TextView_searchCommunity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Home_TextView_noCommunity"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-20dp"
-        android:fontFamily="@font/ntsblack"
-        android:text="@string/search_content"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
-
-    <RelativeLayout
-        android:id="@+id/Home_ImageButton_CreateCommunity"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/Home_TextView_searchCommunity"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="38dp"
-        android:background="@drawable/community_button"
-        android:elevation="2dp">
-
-        <RelativeLayout
-            android:id="@+id/Home_RelativeLayout_CreateCommunity_TitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true">
-
-            <TextView
-                android:id="@+id/Home_TextView_CreateCommunity_Subtitle1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:fontFamily="@font/ntsblack"
-                android:text="@string/community_create_subtitle1"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/Home_TextView_CreateCommunity_Subtitle2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle1"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="-15dp"
-                android:fontFamily="@font/ntsblack"
-                android:text="@string/community_create_subtitle2"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/Home_TextView_CreateCommunity_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle2"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="-18dp"
-                android:fontFamily="@font/ntsblack"
-                android:text="@string/community_create_title"
-                android:textColor="@color/black"
-                android:textSize="23sp" />
-        </RelativeLayout>
+        android:layout_marginTop="0dp">
 
         <ImageView
-            android:layout_width="160dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15sp"
+            android:id="@+id/Home_ImageView_Empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="40dp"
             android:contentDescription="@null"
-            android:elevation="-1dp"
-            android:src="@drawable/create_community_image" />
+            android:src="@drawable/community_empty" />
+
+        <TextView
+            android:id="@+id/Home_TextView_noCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Home_ImageView_Empty"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-35dp"
+            android:fontFamily="@font/ntsbold"
+            android:text="@string/no_community"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/Home_TextView_searchCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Home_TextView_noCommunity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:fontFamily="@font/ntsblack"
+            android:text="@string/search_content"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:id="@+id/Home_ImageButton_CreateCommunity"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/Home_TextView_searchCommunity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="38dp"
+            android:background="@drawable/community_button"
+            android:elevation="2dp">
+
+            <RelativeLayout
+                android:id="@+id/Home_RelativeLayout_CreateCommunity_TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/Home_TextView_CreateCommunity_Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_create_subtitle1"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/Home_TextView_CreateCommunity_Subtitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle1"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="-15dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_create_subtitle2"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/Home_TextView_CreateCommunity_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle2"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="-18dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_create_title"
+                    android:textColor="@color/black"
+                    android:textSize="23sp" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15sp"
+                android:contentDescription="@null"
+                android:elevation="-1dp"
+                android:src="@drawable/create_community_image" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Home_ImageButton_FindCommunity"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/Home_ImageButton_CreateCommunity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="38dp"
+            android:background="@drawable/community_button"
+            android:elevation="2dp">
+
+            <RelativeLayout
+                android:id="@+id/Home_RelativeLayout_FindCommunity_TitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/Home_TextView_FindCommunity_Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_find_subtitle1"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/Home_TextView_FindCommunity_Subtitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Home_TextView_FindCommunity_Subtitle1"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="-15dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_find_subtitle2"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/Home_TextView_FindCommunity_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Home_TextView_FindCommunity_Subtitle2"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="-18dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_find_title"
+                    android:textColor="@color/black"
+                    android:textSize="23sp" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15sp"
+                android:contentDescription="@null"
+                android:src="@drawable/find_community_image" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/Home_ImageButton_FindCommunity"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@id/Home_ImageButton_CreateCommunity"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="38dp"
-        android:background="@drawable/community_button"
-        android:elevation="2dp">
-
-        <RelativeLayout
-            android:id="@+id/Home_RelativeLayout_FindCommunity_TitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true">
-
-            <TextView
-                android:id="@+id/Home_TextView_FindCommunity_Subtitle1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:fontFamily="@font/ntsblack"
-                android:text="@string/community_find_subtitle1"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/Home_TextView_FindCommunity_Subtitle2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Home_TextView_FindCommunity_Subtitle1"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="-15dp"
-                android:fontFamily="@font/ntsblack"
-                android:text="@string/community_find_subtitle2"
-                android:textColor="@color/gray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/Home_TextView_FindCommunity_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Home_TextView_FindCommunity_Subtitle2"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="-18dp"
-                android:fontFamily="@font/ntsblack"
-                android:text="@string/community_find_title"
-                android:textColor="@color/black"
-                android:textSize="23sp" />
-        </RelativeLayout>
+        android:id="@+id/Home_RelativeLayout_newArticle"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_above="@id/Home_RelativeLayout_TabBar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round"
+        android:backgroundTint="@color/main"
+        android:elevation="12dp">
 
         <ImageView
-            android:layout_width="160dp"
-            android:layout_height="match_parent"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="13dp"
+            android:src="@drawable/add" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15sp"
-            android:contentDescription="@null"
-            android:src="@drawable/find_community_image" />
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/ntsblack"
+            android:includeFontPadding="false"
+            android:text="@string/new_article"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/Home_RelativeLayout_TabBar"
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/home_bar"
-        android:elevation="12dp">
+        android:elevation="16dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/Home_CircleImageView_Profile"
