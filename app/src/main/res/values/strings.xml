@@ -12,4 +12,7 @@
     <string name="search_content">우리 한 번 커뮤니티 찾아봅시다</string>
     <string name="email_chk">이메일 인증 여부</string>
     <string name="phonenum">전화 번호 입력</string>
+    <string name="signup_name">이름 입력</string>
+    <string name="signup_area">지역선택하기</string>
+    <string name="Sign_err_location">오류가 났습니다</string>
 </resources>
