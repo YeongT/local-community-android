@@ -5,6 +5,6 @@ data class UserRegisterModel(
     val password: String,
     val name: String,
     val phone: String,
-    val gender: String,
-    val areaString: String
+    val gender: Number,
+    val area: String
 )
