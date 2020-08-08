@@ -102,4 +102,6 @@
         android:text="@string/complete"
         android:textColor="@color/white"
         android:textSize="20sp" />
+    i love seongho
+
 </LinearLayout>
