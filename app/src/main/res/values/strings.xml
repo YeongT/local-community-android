@@ -7,6 +7,11 @@
     <string name="complete">등록</string>
     <string name="home">홈</string>
     <string name="search_title">검색하기</string>
+    <string name="search_edittext_hint">검색어를 입력해주세요.</string>\
+    <string name="search_button_content">내용</string>
+    <string name="search_button_tag">태그</string>
+    <string name="search_button_title">제목</string>
+    <string name="search_button_writer">게시자</string>
     <string name="search_subcontent">원하는 커뮤니티 찾아 삼만리</string>
     <string name="login">로그인</string>
     <string name="search_content">우리 한 번 커뮤니티 찾아봅시다</string>
@@ -20,5 +25,4 @@
     <string name="signup_pwd">비밀번호를 입력해주세요</string>
     <string name="signup_phonenum">전화번호를 입력해주세요</string>
     <string name="place_api_key">"AIzaSyAbNHQFSKGNABpCryJUhG-o2LFguKeDLxQ"</string>
-
 </resources>
