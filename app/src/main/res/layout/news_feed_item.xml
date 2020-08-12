@@ -15,6 +15,7 @@
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="30dp"
+            android:layout_marginBottom="20dp"
             android:elevation="12dp"
             android:src="@drawable/arin" />
 
@@ -22,8 +23,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@color/invisible"
-            android:layout_toEndOf="@+id/Home_CircleImageView_newsFeedProfileImage">
+            android:layout_toEndOf="@+id/Home_CircleImageView_newsFeedProfileImage"
+            android:background="@color/invisible">
 
             <TextView
                 android:id="@+id/Home_TextView_newsFeedUserLink"
@@ -31,11 +32,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="30dp"
-                android:textSize="13dp"
                 android:fontFamily="@font/ntsblack"
                 android:includeFontPadding="false"
-                android:text="TalYeongJongChangWuMo"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/Home_TextView_newsFeedTime"
@@ -44,11 +44,10 @@
                 android:layout_below="@+id/Home_TextView_newsFeedUserLink"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="30dp"
-                android:textSize="13dp"
                 android:fontFamily="@font/ntlight"
                 android:includeFontPadding="false"
-                android:text="7/29 21:30"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="13sp" />
         </RelativeLayout>
     </RelativeLayout>
 
@@ -59,13 +58,12 @@
         android:layout_below="@id/Home_RelativeLayout_newFeedTitleSpace"
         android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="11dp"
         android:layout_marginEnd="25dp"
         android:background="@color/invisible"
         android:fontFamily="@font/ntregular"
         android:includeFontPadding="false"
-        android:text="미안하다 이거 보여줄려고 어그로 끌었다 ㄹㅇ 한소희 미모 수준 실화냐? 진짜 세계관 최강자의 얼굴이다..." />
+        android:textColor="@color/black"
+        android:textSize="13sp" />
 
     <ImageView
         android:id="@+id/Home_ImageView_newsFeedImage"

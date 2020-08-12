@@ -22,4 +22,8 @@
     <string name="community_find_subtitle1">근처 사람들과 모여서</string>
     <string name="community_find_subtitle2">정보를 공유하고 이야기하고 싶다면</string>
     <string name="community_find_title">커뮤니티 찾아보기</string>
+    <string name="new_article">새 게시물</string>
+    <string name="cancel">취소</string>
+    <string name="upload">게시</string>
+    <string name="enter_content">내용을 입력하세요.</string>
 </resources>

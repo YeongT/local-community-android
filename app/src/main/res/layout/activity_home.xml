@@ -21,6 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20sp"
                 android:layout_gravity="bottom"
+                android:layout_marginTop="-20dp"
                 android:background="@color/main"
                 android:contentDescription="@null" />
 
@@ -51,9 +52,9 @@
         android:id="@+id/Home_RecyclerView_newsFeedList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_above="@id/Home_RelativeLayout_TabBar"
         android:layout_below="@id/Home_Title"
+        android:layout_marginTop="20dp"
         android:background="@color/white" />
 
     <RelativeLayout
@@ -223,6 +224,38 @@
                 android:src="@drawable/find_community_image" />
 
         </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/Home_RelativeLayout_newArticle"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        android:layout_above="@id/Home_RelativeLayout_TabBar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round"
+        android:backgroundTint="@color/main"
+        android:elevation="12dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="13dp"
+            android:src="@drawable/add" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/ntsblack"
+            android:includeFontPadding="false"
+            android:text="@string/new_article"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 
