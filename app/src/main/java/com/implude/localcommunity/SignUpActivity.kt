@@ -68,7 +68,8 @@ class SignUpActivity : AppCompatActivity() {
                     email
                 )
             ) {
-                Toast.makeText(this, "올바른 이매일이 아닙니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.signup_email_err), Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
@@ -77,7 +78,7 @@ class SignUpActivity : AppCompatActivity() {
                     password1
                 )
             ) {
-                Toast.makeText(this, "올바른 비밀번호가 아닙니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.signup_pwd_err), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (!Pattern.matches(
@@ -85,7 +86,8 @@ class SignUpActivity : AppCompatActivity() {
                     phonenum
                 )
             ) {
-                Toast.makeText(this, "올바른 전화번호가 아닙니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.signup_phonenum_err), Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
             val model = UserRegisterModel(
@@ -109,7 +111,38 @@ class SignUpActivity : AppCompatActivity() {
                     Log.e("APITEST-SUC", response.code().toString())
 
                     if (response.code().toString() != "200") {
-                        val toast = Toast.makeText(this@SignUpActivity, "오류", Toast.LENGTH_LONG)
+
+                        if (response.code().toString() == "409") {
+                            val toast = Toast.makeText(
+                                this@SignUpActivity,
+                                "이메일이 중복되었습니다.",
+                                Toast.LENGTH_LONG
+                            )
+                            toast.setGravity(
+                                Gravity.CENTER,
+                                Gravity.CENTER_HORIZONTAL,
+                                Gravity.CENTER_VERTICAL
+                            )
+
+                            toast.show()
+                        } else {
+                            val toast = Toast.makeText(
+                                this@SignUpActivity,
+                                "회원가입 오류입니다.",
+                                Toast.LENGTH_LONG
+                            )
+                            toast.setGravity(
+                                Gravity.CENTER,
+                                Gravity.CENTER_HORIZONTAL,
+                                Gravity.CENTER_VERTICAL
+                            )
+
+                            toast.show()
+                        }
+
+                    } else {
+                        val toast =
+                            Toast.makeText(this@SignUpActivity, "회원가입에 성공하였습니다.", Toast.LENGTH_LONG)
                         toast.setGravity(
                             Gravity.CENTER,
                             Gravity.CENTER_HORIZONTAL,
@@ -151,10 +184,10 @@ class SignUpActivity : AppCompatActivity() {
                         signup_email.text
                     )
                 ) {
-                    signup_email_text.text = "이메일이 올바르지 않습니다"
+                    signup_email_text.text = getString(R.string.signup_email_err)
                     signup_email_text.setTextColor(getColor(R.color.incorrect))
                 } else {
-                    signup_email_text.text = "올바른 이메일 입니다"
+                    signup_email_text.text = getString(R.string.signup_email_correct)
                     signup_email_text.setTextColor(getColor(R.color.correct))
 
                 }
@@ -182,10 +215,10 @@ class SignUpActivity : AppCompatActivity() {
                         signup_pwd.text
                     )
                 ) {
-                    signup_pwd_text.text = "비밀번호가 올바르지 않습니다"
+                    signup_pwd_text.text = getString(R.string.signup_pwd_err)
                     signup_pwd_text.setTextColor(getColor(R.color.incorrect))
                 } else {
-                    signup_pwd_text.text = "올바른 비밀번호 입니다"
+                    signup_pwd_text.text = getString(R.string.signup_pwd_correct)
                     signup_pwd_text.setTextColor(getColor(R.color.correct))
 
                 }
@@ -213,10 +246,10 @@ class SignUpActivity : AppCompatActivity() {
                         signup_phonenum.text
                     )
                 ) {
-                    signup_phonenum_text.text = "전화번호가 올바르지 않습니다"
+                    signup_phonenum_text.text = getString(R.string.signup_phonenum_err)
                     signup_phonenum_text.setTextColor(getColor(R.color.incorrect))
                 } else {
-                    signup_phonenum_text.text = "올바른 전화번호 입니다"
+                    signup_phonenum_text.text = getString(R.string.signup_phonenum_correct)
                     signup_phonenum_text.setTextColor(getColor(R.color.correct))
 
                 }

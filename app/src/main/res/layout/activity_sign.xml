@@ -82,8 +82,6 @@
                 android:layout_height="wrap_content"
                 app:hintEnabled="false"
                 app:passwordToggleEnabled="true"
-
-
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -96,13 +94,9 @@
                     android:inputType="textPassword"
                     android:maxLength="15"
                     android:nextFocusDown="@id/signup_name"
-
                     android:paddingVertical="12dp"
-
                     android:paddingHorizontal="10dp"
-
                     android:singleLine="true" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
 
