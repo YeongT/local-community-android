@@ -2,13 +2,32 @@ package com.implude.localcommunity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {
 
+    val searchList = arrayListOf<Search>(
+        Search("philip", "hello", "im gag"),
+        Search("gagnammin", "gag", "im gag"),
+        Search("", "hello", "nice to meet you"),
+        Search("", "man", "im example"),
+        Search("", "hello", "im gag")
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
+        val mAdapter = SearchRvAdapter(this, searchList)
+        searchRecyclerView.adapter = mAdapter
+
+        val mDecoration = SearchRvDecoration(60)
+        searchRecyclerView.addItemDecoration(mDecoration)
+
+        val lm = LinearLayoutManager(this)
+        searchRecyclerView.layoutManager = lm
+        searchRecyclerView.setHasFixedSize(true)
 
         var contentbtn_buttonIsClicked = false
         var tagbtn_buttonIsClicked = false
