@@ -7,7 +7,10 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_home.*
+
+private var mFirebaseAnalytics: FirebaseAnalytics? = null
 
 class HomeActivity : AppCompatActivity() {
 
@@ -26,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
         var communityJoined = false // 커뮤니티 참가 여부
 
         newsFeedRecyclerViewSetUp() // 리사이클러뷰 어댑터 연동
@@ -46,7 +50,8 @@ class HomeActivity : AppCompatActivity() {
             Home_RelativeLayout_No_Community.visibility = View.GONE // 커뮤니티 있으면 커뮤니티 없음 레이아웃 가리고
             Home_RecyclerView_newsFeedList.visibility = View.VISIBLE // 대신 뉴스피드 리스트 표시
         } else {
-            Home_RelativeLayout_No_Community.visibility = View.VISIBLE // 커뮤니티 없으면 커뮤니티 없음 레이아웃 표시
+            Home_RelativeLayout_No_Community.visibility =
+                View.VISIBLE // 커뮤니티 없으면 커뮤니티 없음 레이아웃 표시
         }
     }
 
@@ -60,12 +65,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun newsFeedRecyclerViewSetUp() { // 뉴스피드 리사이클러뷰 초기 셋팅 메소드
-
         Home_RecyclerView_newsFeedList.adapter = newsFeedAdapter
         // 이 화면에 생성될 RecyclerView의 어댑터로 NewsFeedRecycleriewAdapter 형의 newsFeedAdapter를 사용하겠다...
 
         val lm = LinearLayoutManager(this)
-        Home_RecyclerView_newsFeedList.layoutManager = lm // RecyclerView의 레이아웃을 LinearLayout으로 관리
+        Home_RecyclerView_newsFeedList.layoutManager =
+            lm // RecyclerView의 레이아웃을 LinearLayout으로 관리
         Home_RecyclerView_newsFeedList.setHasFixedSize(true) // RecyclerView에서 아이템이 추가, 삭제될 때 RecyclerView의 width와 height를 고정한 채로 유지
     }
 }
