@@ -7,13 +7,14 @@
     tools:context=".SearchActivity">
 
     <FrameLayout
-        android:id="@+id/homeTitle"
+        android:id="@+id/search_framelayout_title"
         android:layout_width="wrap_content"
         android:layout_height="95sp"
         android:layout_marginStart="30sp"
         android:layout_marginTop="30sp">
 
         <ImageView
+            android:id="@+id/search_imageview_title"
             android:layout_width="match_parent"
             android:layout_height="20sp"
             android:layout_gravity="bottom"
@@ -21,6 +22,7 @@
             android:contentDescription="@null" />
 
         <TextView
+            android:id="@+id/search_textview_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/ntsblack"
@@ -30,21 +32,122 @@
     </FrameLayout>
 
     <TextView
+        android:id="@+id/search_textview_subcontent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/ntsblack"
         android:text="@string/search_subcontent"
-        android:textSize="18sp" />
+        android:textColor="#959595"
+        android:textSize="15sp" />
 
     <TextView
+        android:id="@+id/search_textview_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
+        android:layout_marginTop="-20dp"
         android:fontFamily="@font/ntsblack"
         android:text="@string/search_content"
-        android:textColor="#000000"
-        android:textSize="33sp" />
+        android:textColor="@color/black"
+        android:textSize="27sp" />
+
+    <LinearLayout
+        android:id="@+id/search_linearlayout_searchbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/search_imageview_searchimg"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="45dp"
+            android:src="@drawable/ic_search_24px" />
+
+        <EditText
+            android:id="@+id/search_edittext_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="-5dp"
+            android:background="@null"
+            android:fontFamily="@font/ntslight"
+            android:hint="@string/search_edittext_hint"
+            android:textColorHint="#D4D4D4"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/search_imageview_searchunderbar"
+        android:layout_width="330dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/search_underbar" />
+
+    <LinearLayout
+        android:id="@+id/search_linearlayout_searchbtns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/search_button_contentbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:background="@drawable/button_gray"
+            android:fontFamily="@font/ntsmedium"
+            android:paddingHorizontal="25dp"
+            android:text="@string/search_button_content"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/search_button_tagbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_gray"
+            android:fontFamily="@font/ntsmedium"
+            android:paddingHorizontal="25dp"
+            android:text="@string/search_button_tag"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/search_button_titlebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_gray"
+            android:fontFamily="@font/ntsmedium"
+            android:paddingHorizontal="25dp"
+            android:text="@string/search_button_title"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/search_button_writerbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/button_gray"
+            android:fontFamily="@font/ntsmedium"
+            android:paddingHorizontal="20dp"
+            android:text="@string/search_button_writer"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+    </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

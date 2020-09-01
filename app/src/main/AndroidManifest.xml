@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".HomeActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SearchActivity"/>
+        <activity android:name=".SearchActivity" />
         <activity android:name=".SignUpActivity" />
         <activity
             android:name=".SplashActivity"
