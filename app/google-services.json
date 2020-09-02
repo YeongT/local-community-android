@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "523990686938",
+    "firebase_url": "https://localcommunity-khykp.firebaseio.com",
+    "project_id": "localcommunity-khykp",
+    "storage_bucket": "localcommunity-khykp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523990686938:android:8a371911f937e53c1459e3",
+        "android_client_info": {
+          "package_name": "com.implude.localcommunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523990686938-nn84la4kiflq24dbvftp9m1osff87jic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdy17_zSTV6h7e_s3D_VmXmj6V1zjJc_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523990686938-nn84la4kiflq24dbvftp9m1osff87jic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
