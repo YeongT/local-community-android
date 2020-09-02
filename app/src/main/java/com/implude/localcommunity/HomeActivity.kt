@@ -7,8 +7,11 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_home.*
 
+private var mFirebaseAnalytics: FirebaseAnalytics? = null
 class HomeActivity : AppCompatActivity() {
 
     private var newsFeedList = arrayListOf<NewsFeed?>() // 뉴스피드 데이터 리스트
@@ -34,8 +37,8 @@ class HomeActivity : AppCompatActivity() {
         Home_RelativeLayout_newArticle.setOnClickListener(({
             val intent = Intent(this, ArticleAddActivity::class.java)
             startActivityForResult(intent, NEW_ARTICLE_CODE)
-        }))
-
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
+        
         /* 프로필 버튼 */
         Home_CircleImageView_Profile.setOnClickListener(({
             val intent = Intent(this, ProfileActivity::class.java)
