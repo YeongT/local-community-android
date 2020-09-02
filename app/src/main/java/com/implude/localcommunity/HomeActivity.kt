@@ -8,9 +8,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_home.*
-import org.json.JSONObject
-import java.text.SimpleDateFormat
-
 
 class HomeActivity : AppCompatActivity() {
 
@@ -31,7 +28,6 @@ class HomeActivity : AppCompatActivity() {
 
         var communityJoined = false // 커뮤니티 참가 여부
 
-        jsonObjectsExample()
         newsFeedRecyclerViewSetUp() // 리사이클러뷰 어댑터 연동
 
         /* 새 게시물 버튼 */
@@ -71,24 +67,5 @@ class HomeActivity : AppCompatActivity() {
         val lm = LinearLayoutManager(this)
         Home_RecyclerView_newsFeedList.layoutManager = lm // RecyclerView의 레이아웃을 LinearLayout으로 관리
         Home_RecyclerView_newsFeedList.setHasFixedSize(true) // RecyclerView에서 아이템이 추가, 삭제될 때 RecyclerView의 width와 height를 고정한 채로 유지
-    }
-
-    fun jsonObjectsExample() { // JSON 문자열 변환 메소드
-        val jsonString = """
-        {
-            "name": "식빵",
-            "family": "웰시코기",
-            "age": 1,
-            "weight": 2.14
-        }
-    """.trimIndent() // 문장을 일렬로 정렬하는 메소드
-
-        val jObject = JSONObject(jsonString) // JSON 형태의 데이터를 관리하는 메소드
-
-        // getString("key") -> key값에 해당하는 value 반환하는 메소드
-        var title = jObject.getString("name")
-        var url = jObject.getString("family")
-        var draft = jObject.getInt("age")
-        var weight = jObject.getDouble("weight")
     }
 }
