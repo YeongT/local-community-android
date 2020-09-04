@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">LocalCommunity</string>
     <string name="app_api_server_url">https://api.hakbong.me/</string>
-    <string name="search_title">검색하기</string>
-    <string name="search_subcontent">원하는 커뮤니티 찾아 삼만리</string>
-    <string name="search_content">우리 한 번 커뮤니티 찾아봅시다</string>
+
 
     <string name="login_alert_id">입력하신 이메일의 형식이 올바르지 않습니다.</string>
     <string name="login_alert_pw">입력하신 비밀번호의 형식이 올바르지 않습니다.</string>
@@ -12,7 +10,7 @@
     <string name="login_error_invalid_format">서버에 전송된 아이디/비밀번호의 형식이 올바르지 않습니다.</string>
     <string name="login_succeed_logintask">로그인에 성공하였습니다!</string>
 
-    <string name="login">로그인</string>
+
     <string name="register">회원가입</string>
     <string name="emailEnter">이메일 입력</string>
     <string name="pwdEnter">비밀번호 입력(특수문자, 숫자, 영어포함)</string>
