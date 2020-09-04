@@ -54,10 +54,12 @@ class ArticleAddActivity : AppCompatActivity() {
                 val intent = Intent()
                 intent.putExtra(
                     "dataList", NewsFeed(
+                        "5f2e51812acae6c5d32977f0",
                         "title",
                         "종우 탈모년",
+                        "#야쓰",
                         bitmap,
-                        currentTime
+                        "없음"
                     )
                 )
                 setResult(RESULT_OK, intent)

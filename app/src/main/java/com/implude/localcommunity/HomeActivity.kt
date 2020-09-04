@@ -7,11 +7,11 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_home.*
 
 private var mFirebaseAnalytics: FirebaseAnalytics? = null
+
 class HomeActivity : AppCompatActivity() {
 
     private var newsFeedList = arrayListOf<NewsFeed?>() // 뉴스피드 데이터 리스트
@@ -37,20 +37,22 @@ class HomeActivity : AppCompatActivity() {
         Home_RelativeLayout_newArticle.setOnClickListener(({
             val intent = Intent(this, ArticleAddActivity::class.java)
             startActivityForResult(intent, NEW_ARTICLE_CODE)
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
-        
-        /* 프로필 버튼 */
-        Home_CircleImageView_Profile.setOnClickListener(({
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-        }))
+            mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
-        if (!communityJoined) {
-            Home_RelativeLayout_No_Community.visibility = View.GONE // 커뮤니티 있으면 커뮤니티 없음 레이아웃 가리고
-            Home_RecyclerView_newsFeedList.visibility = View.VISIBLE // 대신 뉴스피드 리스트 표시
-        } else {
-            Home_RelativeLayout_No_Community.visibility = View.VISIBLE // 커뮤니티 없으면 커뮤니티 없음 레이아웃 표시
-        }
+            /* 프로필 버튼 */
+            Home_CircleImageView_Profile.setOnClickListener(({
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+            }))
+
+            if (!communityJoined) {
+                Home_RelativeLayout_No_Community.visibility = View.GONE // 커뮤니티 있으면 커뮤니티 없음 레이아웃 가리고
+                Home_RecyclerView_newsFeedList.visibility = View.VISIBLE // 대신 뉴스피드 리스트 표시
+            } else {
+                Home_RelativeLayout_No_Community.visibility =
+                    View.VISIBLE // 커뮤니티 없으면 커뮤니티 없음 레이아웃 표시
+            }
+        }))
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -63,12 +65,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun newsFeedRecyclerViewSetUp() { // 뉴스피드 리사이클러뷰 초기 셋팅 메소드
-
         Home_RecyclerView_newsFeedList.adapter = newsFeedAdapter
         // 이 화면에 생성될 RecyclerView의 어댑터로 NewsFeedRecycleriewAdapter 형의 newsFeedAdapter를 사용하겠다...
 
         val lm = LinearLayoutManager(this)
-        Home_RecyclerView_newsFeedList.layoutManager = lm // RecyclerView의 레이아웃을 LinearLayout으로 관리
+        Home_RecyclerView_newsFeedList.layoutManager =
+            lm // RecyclerView의 레이아웃을 LinearLayout으로 관리
         Home_RecyclerView_newsFeedList.setHasFixedSize(true) // RecyclerView에서 아이템이 추가, 삭제될 때 RecyclerView의 width와 height를 고정한 채로 유지
     }
 }
