@@ -8,7 +8,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.Gravity
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -62,7 +61,6 @@ class SignUpActivity : AppCompatActivity() {
             var gender = if (signup_chk_male.isChecked) 1 else 2
 
 
-
             if (!Pattern.matches(
                     "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}\$",
                     email
@@ -90,6 +88,7 @@ class SignUpActivity : AppCompatActivity() {
                     .show()
                 return@setOnClickListener
             }
+
             val model = UserRegisterModel(
                 email,
                 password1,
@@ -104,14 +103,11 @@ class SignUpActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
                     Log.e("APITEST_FAIL", t.message.toString())
                     t.printStackTrace()
-
                 }
 
                 override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                     Log.e("APITEST-SUC", response.code().toString())
-
                     if (response.code().toString() != "200") {
-
                         if (response.code().toString() == "409") {
                             val toast = Toast.makeText(
                                 this@SignUpActivity,
@@ -136,10 +132,8 @@ class SignUpActivity : AppCompatActivity() {
                                 Gravity.CENTER_HORIZONTAL,
                                 Gravity.CENTER_VERTICAL
                             )
-
                             toast.show()
                         }
-
                     } else {
                         val toast =
                             Toast.makeText(this@SignUpActivity, "회원가입에 성공하였습니다.", Toast.LENGTH_LONG)
@@ -148,15 +142,11 @@ class SignUpActivity : AppCompatActivity() {
                             Gravity.CENTER_HORIZONTAL,
                             Gravity.CENTER_VERTICAL
                         )
-
                         toast.show()
                     }
                 }
-
             })
         }
-
-
 
         signup_chk_female.setOnCheckedChangeListener { buttonView, isChecked ->
             if (signup_chk_female.isChecked) {
@@ -167,12 +157,10 @@ class SignUpActivity : AppCompatActivity() {
             if (signup_chk_male.isChecked) {
                 signup_chk_female.isChecked = false
             }
-
         }
 
         signup_email.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-
                 if (!Pattern.matches(
                         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                                 "\\@" +
@@ -189,22 +177,14 @@ class SignUpActivity : AppCompatActivity() {
                 } else {
                     signup_email_text.text = getString(R.string.signup_email_correct)
                     signup_email_text.setTextColor(getColor(R.color.correct))
-
                 }
-
-
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-
             }
-
-
         })
 
         signup_pwd.addTextChangedListener(object : TextWatcher {
@@ -220,22 +200,14 @@ class SignUpActivity : AppCompatActivity() {
                 } else {
                     signup_pwd_text.text = getString(R.string.signup_pwd_correct)
                     signup_pwd_text.setTextColor(getColor(R.color.correct))
-
                 }
-
-
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-
             }
-
-
         })
 
         signup_phonenum.addTextChangedListener(object : TextWatcher {
@@ -251,22 +223,14 @@ class SignUpActivity : AppCompatActivity() {
                 } else {
                     signup_phonenum_text.text = getString(R.string.signup_phonenum_correct)
                     signup_phonenum_text.setTextColor(getColor(R.color.correct))
-
                 }
-
-
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-
             }
-
-
         })
     }
 

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginBottom="70dp">
 
     <RelativeLayout
@@ -27,7 +28,7 @@
             android:background="@color/invisible">
 
             <TextView
-                android:id="@+id/Home_TextView_newsFeedUserLink"
+                android:id="@+id/Home_TextView_NewsFeedTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -35,20 +36,24 @@
                 android:fontFamily="@font/ntsblack"
                 android:includeFontPadding="false"
                 android:textColor="@color/black"
-                android:textSize="13sp" />
+                android:textSize="14sp"
+                tools:text="NewsFeed Title TextView 입니다."/>
 
             <TextView
-                android:id="@+id/Home_TextView_newsFeedTime"
+                android:id="@+id/Home_TextView_newsFeedUserLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Home_TextView_newsFeedUserLink"
+                android:layout_below="@+id/Home_TextView_NewsFeedTitle"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="30dp"
                 android:fontFamily="@font/ntlight"
                 android:includeFontPadding="false"
                 android:textColor="@color/black"
-                android:textSize="13sp" />
+                android:textSize="13sp"
+                tools:text="유저 링크 TextView 입니다." />
+
         </RelativeLayout>
+
     </RelativeLayout>
 
     <TextView
@@ -63,7 +68,8 @@
         android:fontFamily="@font/ntregular"
         android:includeFontPadding="false"
         android:textColor="@color/black"
-        android:textSize="13sp" />
+        android:textSize="13sp"
+        tools:text="NewsFeed Content TextView 입니다." />
 
     <ImageView
         android:id="@+id/Home_ImageView_newsFeedImage"

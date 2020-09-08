@@ -2,9 +2,9 @@ package com.implude.localcommunity
 
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface NewsFeedApi {
-    @POST("post/new-article")
+    @PUT("post/new-article")
     fun newArticle(@Body param: NewsFeedModel): Call<ApiResponseModel>
 }
