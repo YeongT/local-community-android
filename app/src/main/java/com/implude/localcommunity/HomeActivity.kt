@@ -6,24 +6,23 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_home.*
 
 private var mFirebaseAnalytics: FirebaseAnalytics? = null
-
 class HomeActivity : AppCompatActivity() {
+    private var newsFeedList = arrayListOf<NewsFeed>()          // 뉴스피드 데이터 리스트
 
-    private var newsFeedList = arrayListOf<NewsFeed?>() // 뉴스피드 데이터 리스트
+    private var communityJoined = false                         // 커뮤니티 참가 여부
 
-    private val NEW_ARTICLE_CODE = 100
+    private val NEW_ARTICLE_CODE = 100                          // 게시물 코드
+    private val TAG = "HomeActivity"
 
+    /* 홈액티비티의 context 와 뉴스피드를 담은 리스트를 매개변수로 보냅니다. */
     private val newsFeedAdapter = NewsFeedRecyclerViewAdapter(
-        this,
-        arrayListOf<NewsFeed?>()
-    ) // 홈액티비티의 context와 뉴스피드를 담은 리스트를 매개변수로 보냅니다.
-
-    private val TAG = "HomeActivity" // 로그 태그
+            this,
+            arrayListOf<NewsFeed>()
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +31,13 @@ class HomeActivity : AppCompatActivity() {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
         var communityJoined = false // 커뮤니티 참가 여부
 
-        newsFeedRecyclerViewSetUp() // 리사이클러뷰 어댑터 연동
+        newsFeedRecyclerViewSetUp()                             // 리사이클러뷰 어댑터 연동
+
+        /* UserJwt 발급 */
+        LoginTest.setOnClickListener(({
+            val intent = Intent(this@HomeActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }))
 
         /* 새 게시물 버튼 */
         Home_RelativeLayout_newArticle.setOnClickListener(({
@@ -55,22 +60,19 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    /* 새 게시물 응답 메소드 */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        Log.e(TAG, "데이터는 : " + data.toString())
+        Log.e(TAG, "data : " + data.toString())                           // 데이터 상태 확인
         if (requestCode == NEW_ARTICLE_CODE && resultCode == Activity.RESULT_OK) {
-            newsFeedAdapter.addItem(data?.getParcelableExtra("dataList"))
+            newsFeedAdapter.addItem(data?.getParcelableExtra("dataList") ?: return)
         }
     }
 
-    private fun newsFeedRecyclerViewSetUp() { // 뉴스피드 리사이클러뷰 초기 셋팅 메소드
-        Home_RecyclerView_newsFeedList.adapter = newsFeedAdapter
-        // 이 화면에 생성될 RecyclerView의 어댑터로 NewsFeedRecycleriewAdapter 형의 newsFeedAdapter를 사용하겠다...
-
-        val lm = LinearLayoutManager(this)
-        Home_RecyclerView_newsFeedList.layoutManager =
-            lm // RecyclerView의 레이아웃을 LinearLayout으로 관리
-        Home_RecyclerView_newsFeedList.setHasFixedSize(true) // RecyclerView에서 아이템이 추가, 삭제될 때 RecyclerView의 width와 height를 고정한 채로 유지
+    /* 뉴스피드 리사이클러뷰 초기 셋팅 메소드 */
+    private fun newsFeedRecyclerViewSetUp() {
+        Home_RecyclerView_newsFeedList.adapter = newsFeedAdapter    // 뉴스피드 리시아클러뷰 어댑터로 NewsFeedRecyclerViewAdapter 사용
+        Home_RecyclerView_newsFeedList.setHasFixedSize(true)        // RecyclerView 에서 아이템 변동 있을 때마다 RecyclerView 의 width 와 height 를 고정한 채로 유지
     }
 }

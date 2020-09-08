@@ -7,8 +7,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
-class NewsFeedRecyclerViewAdapter(private val context: Context, private val NewsFeedList: ArrayList<NewsFeed?>) :
+class NewsFeedRecyclerViewAdapter(
+    private val context: Context,
+    private val NewsFeedList: ArrayList<NewsFeed>
+) :
     RecyclerView.Adapter<NewsFeedRecyclerViewAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -16,7 +20,7 @@ class NewsFeedRecyclerViewAdapter(private val context: Context, private val News
         return Holder(view)
     }
 
-    fun addItem(newsFeed: NewsFeed?) {
+    fun addItem(newsFeed: NewsFeed) {
         NewsFeedList.add(newsFeed)
         notifyDataSetChanged()
     }
@@ -29,17 +33,17 @@ class NewsFeedRecyclerViewAdapter(private val context: Context, private val News
         holder.bind(NewsFeedList[position], context)
     }
 
-    inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-        private val userLink = itemView?.findViewById<TextView>(R.id.Home_TextView_newsFeedUserLink)
-        private val time = itemView?.findViewById<TextView>(R.id.Home_TextView_newsFeedTime)
-        private val content = itemView?.findViewById<TextView>(R.id.Home_TextView_newFeedContent)
-        private val img = itemView?.findViewById<ImageView>(R.id.Home_ImageView_newsFeedImage)
+    class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val userLink = itemView.findViewById<TextView>(R.id.Home_TextView_newsFeedUserLink)
+        private val title = itemView.findViewById<TextView>(R.id.Home_TextView_NewsFeedTitle)
+        private val text = itemView.findViewById<TextView>(R.id.Home_TextView_newFeedContent)
+        private val picture = itemView.findViewById<ImageView>(R.id.Home_ImageView_newsFeedImage)
 
-        fun bind(newsFeed: NewsFeed?, context: Context) {
-            userLink?.text = newsFeed?.userLink
-            time?.text = newsFeed?.time
-            content?.text = newsFeed?.content
-            img?.setImageBitmap(newsFeed?.img)
+        fun bind(newsFeed: NewsFeed, context: Context) {
+            title.text = newsFeed.title                                     // 제목
+            text.text = newsFeed.text                                       // 내용
+            if (picture != null)                                            // 이미지가 비어있지 않다면
+                Glide.with(context).load(newsFeed.picture).into(picture)    // 파이어베이스 링크를 이미지로 변환
         }
     }
 }
