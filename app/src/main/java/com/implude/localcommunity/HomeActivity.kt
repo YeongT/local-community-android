@@ -46,6 +46,12 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }))
 
+        /* 프로필 액티비티 */
+        btn_test4.setOnClickListener(( {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }))
+
         if (!communityJoined) {
             Home_RelativeLayout_No_Community.visibility = View.GONE             // 커뮤니티 있으면 커뮤니티 없음 레이아웃 가리고
             Home_RecyclerView_newsFeedList.visibility = View.VISIBLE            // 대신 뉴스피드 리스트 표시

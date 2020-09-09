@@ -302,4 +302,11 @@
             android:src="@drawable/arin" />
     </RelativeLayout>
 
+    <Button
+        android:layout_below="@id/btn_test3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_test4"
+        android:text="Profile" />
+
 </RelativeLayout>
