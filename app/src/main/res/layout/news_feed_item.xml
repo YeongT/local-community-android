@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="70dp">
+
+    <RelativeLayout
+        android:id="@+id/Home_RelativeLayout_newFeedTitleSpace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/Home_CircleImageView_newsFeedProfileImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="12dp"
+            android:src="@drawable/arin" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/Home_CircleImageView_newsFeedProfileImage"
+            android:background="@color/invisible">
+
+            <TextView
+                android:id="@+id/Home_TextView_NewsFeedTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/ntsblack"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="NewsFeed Title TextView 입니다."/>
+
+            <TextView
+                android:id="@+id/Home_TextView_newsFeedUserLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Home_TextView_NewsFeedTitle"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/ntlight"
+                android:includeFontPadding="false"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                tools:text="유저 링크 TextView 입니다." />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/Home_TextView_newFeedContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Home_RelativeLayout_newFeedTitleSpace"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/invisible"
+        android:fontFamily="@font/ntregular"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        tools:text="NewsFeed Content TextView 입니다." />
+
+    <ImageView
+        android:id="@+id/Home_ImageView_newsFeedImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/Home_TextView_newFeedContent"
+        android:layout_marginTop="10dp"
+        android:background="@color/black"
+        tools:src="@drawable/arin" />
+
+</RelativeLayout>

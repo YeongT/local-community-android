@@ -4,8 +4,11 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorMain">#FFBC1E</color>
     <color name="black">#000000</color>
+    <color name="deep_gray">#959595</color>
+    <color name="gray">#D4D4D4</color>
     <color name="white">#ffffff</color>
     <color name="main">#ffbc1e</color>
+    <color name="invisible">#00000000</color>
     <color name="correct">#1EFF70</color>
     <color name="incorrect">#FF1E3C</color>
 </resources>

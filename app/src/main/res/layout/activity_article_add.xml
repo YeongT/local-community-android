@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArticleAddActivity">
+
+    <TextView
+        android:id="@+id/ArticleAdd_TextView_newArticle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ntsblack"
+        android:includeFontPadding="false"
+        android:text="@string/new_article"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/ArticleAdd_TextView_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ntsblack"
+        android:includeFontPadding="false"
+        android:text="@string/cancel"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/ArticleAdd_TextView_newsFeedUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/ntsblack"
+        android:includeFontPadding="false"
+        android:text="@string/upload"
+        android:textColor="@color/main"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:id="@+id/ArticleAdd_RelativeLayout_userProfileSpace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ArticleAdd_TextView_newArticle"
+        android:layout_marginTop="30dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ArticleAdd_CircleImageView_userProfileImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="12dp"
+            android:src="@drawable/arin" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/ArticleAdd_CircleImageView_userProfileImage"
+            android:background="@color/invisible">
+
+            <EditText
+                android:id="@+id/ArticleAdd_EditText_Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="30dp"
+                android:background="@null"
+                android:fontFamily="@font/ntsblack"
+                android:hint="@string/enter_title"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="textNoSuggestions|textMultiLine"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/ArticleAdd_EditText_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ArticleAdd_RelativeLayout_userProfileSpace"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/invisible"
+        android:fontFamily="@font/ntregular"
+        android:hint="@string/enter_content"
+        android:importantForAutofill="no"
+        android:includeFontPadding="false"
+        android:inputType="textNoSuggestions|textMultiLine"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <ImageButton
+        android:id="@+id/ArticleAdd_ImageButton_addNewsFeedImage"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/ArticleAdd_EditText_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/dotted"
+        android:contentDescription=""
+        android:fontFamily="@font/ntsblack"
+        android:scaleType="fitCenter"
+        android:textColor="@color/gray" />
+
+</RelativeLayout>
