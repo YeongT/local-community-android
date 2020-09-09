@@ -85,6 +85,6 @@ dependencies {
 
 static def getApiKey(String id) {
     Properties props = new Properties()
-    props.load(new FileInputStream(new File('secret.properties')))
+    props.load(new FileInputStream(new File('apiKey.properties')))
     return props[id]
 }
