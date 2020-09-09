@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="20sp"
             android:layout_gravity="bottom"
-            android:background="@color/main"
+            android:background="@color/colorMain"
             android:contentDescription="@null" />
 
         <TextView
@@ -87,7 +87,7 @@
         android:layout_height="1dp"
         android:layout_marginStart="45dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/search_underbar" />
+        android:src="@drawable/search_underbar"/>
 
     <LinearLayout
         android:id="@+id/search_linearlayout_searchbtns"
