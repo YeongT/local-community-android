@@ -10,7 +10,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(@NonNull savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, LinkActivity::class.java)
         startActivity(intent)
         finish()
     }
