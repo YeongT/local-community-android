@@ -43,4 +43,23 @@
     <string name="signup_email_correct"> "올바른 이메일 형식입니다."</string>
     <string name="signup_pwd_correct"> "올바른 비밀번호 형식입니다."</string>
     <string name="signup_phonenum_correct"> "올바른 전화번호 형식입니다."</string>
+    <string name="profile_username_example">한경민</string>
+    <string name="profile_user_description_example">저는 장종우의 충실한 노예 탈모입니다.</string>
+    <string name="profile_text_user_information">계정 정보</string>
+    <string name="profile_text_change_password">비밀번호 변경</string>
+    <string name="profile_text_withdraw">탈퇴</string>
+    <string name="profile_text_personal_information">개인정보</string>
+    <string name="profile_text_birthday">생년월일</string>
+    <string name="profile_user_birthday_example">2003년 6월 2일</string>
+    <string name="profile_text_name">이름</string>
+    <string name="profile_name_example">윤영창</string>
+    <string name="profile_text_gender">성별</string>
+    <string name="profile_gender_example">남</string>
+    <string name="profile_text_address">주소</string>
+    <string name="profile_address_example">전라남도 목포시 남악1로 52번길 83...</string>
+    <string name="profile_text_change_personal_information">수정</string>
+    <string name="profile_text_service">서비스</string>
+    <string name="profile_text_privacy_policy">개인정보 처리방침</string>
+    <string name="profile_text_check_update">업데이트 확인</string>
+    <string name="profile_text_terms_of_use">이용약관</string>
 </resources>

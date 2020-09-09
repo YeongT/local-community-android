@@ -24,5 +24,9 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
         }))
+        btn_test4.setOnClickListener(( {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }))
     }
 }
