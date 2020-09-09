@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 
 class NewsFeedRecyclerViewAdapter(
     private val context: Context,
-    private val NewsFeedList: ArrayList<NewsFeed>
+    private val NewsFeedList: ArrayList<NewsFeed>,
 ) :
     RecyclerView.Adapter<NewsFeedRecyclerViewAdapter.Holder>() {
 
@@ -34,16 +34,15 @@ class NewsFeedRecyclerViewAdapter(
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val userLink = itemView.findViewById<TextView>(R.id.Home_TextView_newsFeedUserLink)
         private val title = itemView.findViewById<TextView>(R.id.Home_TextView_NewsFeedTitle)
         private val text = itemView.findViewById<TextView>(R.id.Home_TextView_newFeedContent)
-        private val picture = itemView.findViewById<ImageView>(R.id.Home_ImageView_newsFeedImage)
+        private val img = itemView.findViewById<ImageView>(R.id.Home_ImageView_newsFeedImage)
 
         fun bind(newsFeed: NewsFeed, context: Context) {
             title.text = newsFeed.title                                     // 제목
             text.text = newsFeed.text                                       // 내용
-            if (picture != null)                                            // 이미지가 비어있지 않다면
-                Glide.with(context).load(newsFeed.picture).into(picture)    // 파이어베이스 링크를 이미지로 변환
+            if (newsFeed.picture.isBlank()) img.visibility = View.GONE      // 이미지가 비어있다면 ImageView 없애기
+            else Glide.with(context).load(newsFeed.picture).into(img)       // 이미지가 있다면 ImageView에 이미지 넣기
         }
     }
 }

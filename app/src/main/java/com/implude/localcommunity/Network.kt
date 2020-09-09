@@ -14,8 +14,8 @@ fun httpClient(interceptor: Interceptor = AuthInterceptor()): OkHttpClient {
     val clientBuilder = OkHttpClient.Builder()
 
     clientBuilder.addInterceptor(interceptor)
-    clientBuilder.readTimeout(120, TimeUnit.SECONDS)
-    clientBuilder.writeTimeout(120, TimeUnit.SECONDS)
+    clientBuilder.readTimeout(15, TimeUnit.SECONDS)
+    clientBuilder.writeTimeout(15, TimeUnit.SECONDS)
     return clientBuilder.build()
 }
 
