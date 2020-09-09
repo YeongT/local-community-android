@@ -18,8 +18,6 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class ArticleAddActivity : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()            // Firebase FireStore 인스턴스 생성
@@ -29,20 +27,12 @@ class ArticleAddActivity : AppCompatActivity() {
     private var bitmap: Bitmap? = null                          // 갤러리에서 가져온 이미지를 담을 비트맵 변수
     private var imageUrl: String = ""                           // 이미지 링크 (Firebase 링크)
 
-    /* 유저 식별키 */
-    private val userJwt: String =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb21tdW5pdHkiOltdLCJlbmFibGUiOnRydWUsIl9pZCI6IjVmNTRjNWUzMzgxYTIwYjcwNzM1NTIyMyIsImVtYWlsIjoiYnlzc3VkbzYyQGRpbWlnb2guZ29lLmdvLmtyIiwibmFtZSI6IuycpOyYgeywve2FjOyKpO2KuCIsImdlbmRlciI6MSwicGhvbmUiOiJhMmJlMzU4ODVjZmVkNTUyOTQwNmM5ODQyYmFkMDBiOTozNmU0OTE4ZGZhNDIxZDZhMjExNjBiNzJjYTNjZmFkMSIsImFyZWFTdHJpbmciOiLsoITrnbzrgqjrj4Qg66qp7Y-s7IucIiwibGFzdGxvZ2luIjoiMjAyMC0wOS0wNiAyMDoyMDo1NSIsImlhdCI6MTU5OTQ0MjAzOSwiZXhwIjoxNTk5NDQ5MjM5fQ.XzKmMXnTmmf4ANyISZax4ZJle_y8xrOVJulJwqY7kHE"
-
     /* 커뮤니티 식별키 */
     private val target: String = "5f2e51812acae6c5d32977f0"
 
-    private final val GET_GALLERY_IMAGE = 300                   // 이미지 요청 코드
-    private final val BASE_URL = "https://api.hakbong.me/"      // 서버 기본 URL
+    private val GET_GALLERY_IMAGE = 300                   // 이미지 요청 코드
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val retrofit = Network.retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,17 +73,18 @@ class ArticleAddActivity : AppCompatActivity() {
                         Toast.makeText(this@ArticleAddActivity,
                             "게시물을 추가하지 못했습니다.",
                             Toast.LENGTH_LONG).show()
-                        /* userjwt가 유효하지 않음. */
-                        if (response.code().toString() == "403")
-                            Log.e("유저 로그인 키 값이 유효하지 않습니다.", response.code().toString())
 
-                        /* 서버가 요구하는 Data format을 충족시키지 못함 */
-                        else if (response.code().toString() == "412")
-                            Log.e("서버가 요구하는 데이터 포맷 충족X", response.code().toString())
-
-                        /* 서버 네트워크 문제 발생 */
-                        else if (response.code().toString() == "500")
-                            Log.e("서버에 예기치 못한 문제가 발생했습니다.", response.code().toString())
+                        when {
+                            /* userjwt 가 유효하지 않음. */
+                            response.code().toString() == "403" ->
+                                Log.e("유저 로그인 키 값이 유효하지 않습니다.", response.code().toString())
+                            /* 서버가 요구하는 Data format 을 충족시키지 못함 */
+                            response.code().toString() == "412" ->
+                                Log.e("서버가 요구하는 데이터 포맷 충족X", response.code().toString())
+                            /* 서버 네트워크 문제 발생 */
+                            response.code().toString() == "500" ->
+                                Log.e("서버에 예기치 못한 문제가 발생했습니다.", response.code().toString())
+                        }
                     }
 
                     /* 서버에서 처리하는데 문제가 없음. */

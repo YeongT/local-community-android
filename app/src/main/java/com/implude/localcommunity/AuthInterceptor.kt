@@ -1,12 +1,13 @@
 package com.implude.localcommunity
 
+import com.implude.localcommunity.util.toBase64
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
 
 class AuthInterceptor : Interceptor {
-    private val userCredential = "account-basic:"
-    private val authHeader = "Basic ${userCredential}"
+    private val userCredential = "account-basic:${BuildConfig.LOCAL_COMMUNITY_API_KEY}"
+    private val authHeader = "Basic ${userCredential.toBase64()}"
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {

@@ -41,7 +41,7 @@
         android:fontFamily="@font/ntsblack"
         android:includeFontPadding="false"
         android:text="@string/upload"
-        android:textColor="@color/main"
+        android:textColor="@color/colorMain"
         android:textSize="16sp" />
 
     <RelativeLayout
