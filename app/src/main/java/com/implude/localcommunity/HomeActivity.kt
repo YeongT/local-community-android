@@ -27,13 +27,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         newsFeedRecyclerViewSetUp()                             // 리사이클러뷰 어댑터 연동
-
-        /* UserJwt 발급 */
-        LoginTest.setOnClickListener(({
-            val intent = Intent(this@HomeActivity, LoginActivity::class.java)
-            startActivity(intent)
-        }))
-
+        
         /* 새 게시물 버튼 */
         Home_RelativeLayout_newArticle.setOnClickListener(({
             val intent = Intent(this, ArticleAddActivity::class.java)

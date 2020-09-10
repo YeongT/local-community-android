@@ -70,29 +70,6 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <RelativeLayout
-            android:id="@+id/LoginTest"
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/round"
-            android:backgroundTint="@color/gray"
-            android:elevation="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/ntsblack"
-                android:includeFontPadding="false"
-                android:text="jwt발급"
-                android:textColor="@color/white" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/Home_RelativeLayout_newArticle"
             android:layout_width="120dp"
             android:layout_height="45dp"
