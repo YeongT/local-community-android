@@ -51,13 +51,22 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }))
 
-        if (!communityJoined) {
-            Home_RelativeLayout_No_Community.visibility = View.GONE // 커뮤니티 있으면 커뮤니티 없음 레이아웃 가리고
-            Home_RecyclerView_newsFeedList.visibility = View.VISIBLE // 대신 뉴스피드 리스트 표시
-        } else {
-            Home_RelativeLayout_No_Community.visibility =
-                View.VISIBLE // 커뮤니티 없으면 커뮤니티 없음 레이아웃 표시
+        fun changeLayout() {
+            if (communityJoined) {
+                Home_RelativeLayout_No_Community.visibility = View.GONE             // 커뮤니티 있으면 커뮤니티 없음 레이아웃 가리고
+                Home_RelativeLayout_Community.visibility = View.VISIBLE            // 대신 뉴스피드 리스트 표시
+            } else {
+                Home_RelativeLayout_No_Community.visibility = View.VISIBLE          // 커뮤니티 없으면 커뮤니티 없음 레이아웃 표시
+                Home_RelativeLayout_Community.visibility = View.GONE
+            }
         }
+
+        changeLayout()
+
+        Home_ImageView_noticeIcon.setOnClickListener(({
+            communityJoined= !communityJoined
+            changeLayout()
+        }))
     }
 
     /* 새 게시물 응답 메소드 */

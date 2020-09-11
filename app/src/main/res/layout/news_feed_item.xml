@@ -78,6 +78,6 @@
         android:layout_below="@+id/Home_TextView_newFeedContent"
         android:layout_marginTop="10dp"
         android:background="@color/black"
-        android:src="@drawable/arin" />
+        tools:src="@drawable/arin" />
 
 </RelativeLayout>
