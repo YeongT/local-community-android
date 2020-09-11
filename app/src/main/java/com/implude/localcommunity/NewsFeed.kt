@@ -6,8 +6,10 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class NewsFeed(
-    val userLink: String,
-    val content: String,
-    val img: Bitmap?,
-    val time: String
+    val target: String,
+    val title: String,
+    val text: String,
+    val tags: String,
+    val picture: Bitmap?,
+    val link: String
 ) : Parcelable
