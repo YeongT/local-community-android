@@ -1,14 +1,20 @@
 package com.implude.localcommunity.ui.search
 
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.implude.localcommunity.R
+import com.implude.localcommunity.databinding.ActivitySearchBinding
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {
+    val selectedButton = MutableLiveData("")
 
-    val searchList = arrayListOf<Search>(
+    private val searchList = arrayListOf(
         Search("philip", "hello", "im gag"),
         Search("gagnammin", "gag", "im gag"),
         Search("", "hello", "nice to meet you"),
@@ -18,95 +24,21 @@ class SearchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+        val binding: ActivitySearchBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_search)
+        binding.lifecycleOwner = this
+        binding.activity = this
 
-        val mAdapter = SearchRvAdapter(this, searchList)
-        searchRecyclerView.adapter = mAdapter
-
-        val mDecoration = SearchRvDecoration(60)
-        searchRecyclerView.addItemDecoration(mDecoration)
-
-        val lm = LinearLayoutManager(this)
-        searchRecyclerView.layoutManager = lm
-        searchRecyclerView.setHasFixedSize(true)
-
-        var contentbtn_buttonIsClicked = false
-        var tagbtn_buttonIsClicked = false
-        var titlebtn_buttonIsClicked = false
-        var writerbtn_buttonIsClicked = false
-
-        search_button_contentbtn.setOnClickListener {
-            if (!contentbtn_buttonIsClicked) {
-                search_button_contentbtn.setBackgroundResource(R.drawable.button_gray)
-                contentbtn_buttonIsClicked = false
-                search_button_tagbtn.setBackgroundResource(R.drawable.button_gray)
-                tagbtn_buttonIsClicked = false
-                search_button_titlebtn.setBackgroundResource(R.drawable.button_gray)
-                titlebtn_buttonIsClicked = false
-                search_button_writerbtn.setBackgroundResource(R.drawable.button_gray)
-                writerbtn_buttonIsClicked = false
-
-                search_button_contentbtn.setBackgroundResource(R.drawable.button_black)
-                contentbtn_buttonIsClicked = true
-            } else {
-                search_button_contentbtn.setBackgroundResource(R.drawable.button_gray)
-                contentbtn_buttonIsClicked = false
-            }
+        searchRecyclerView.apply {
+            layoutManager = LinearLayoutManager(this@SearchActivity)
+            addItemDecoration(SearchRvDecoration(60))
+            setHasFixedSize(true)
+            adapter = SearchRvAdapter(this@SearchActivity, searchList)
         }
-        search_button_tagbtn.setOnClickListener {
-            if (!tagbtn_buttonIsClicked) {
-                search_button_contentbtn.setBackgroundResource(R.drawable.button_gray)
-                contentbtn_buttonIsClicked = false
-                search_button_tagbtn.setBackgroundResource(R.drawable.button_gray)
-                tagbtn_buttonIsClicked = false
-                search_button_titlebtn.setBackgroundResource(R.drawable.button_gray)
-                titlebtn_buttonIsClicked = false
-                search_button_writerbtn.setBackgroundResource(R.drawable.button_gray)
-                writerbtn_buttonIsClicked = false
+    }
 
-                search_button_tagbtn.setBackgroundResource(R.drawable.button_black)
-                tagbtn_buttonIsClicked = true
-            } else {
-                search_button_tagbtn.setBackgroundResource(R.drawable.button_gray)
-                tagbtn_buttonIsClicked = false
-            }
-        }
-        search_button_titlebtn.setOnClickListener {
-            if (!titlebtn_buttonIsClicked) {
-                search_button_contentbtn.setBackgroundResource(R.drawable.button_gray)
-                contentbtn_buttonIsClicked = false
-                search_button_tagbtn.setBackgroundResource(R.drawable.button_gray)
-                tagbtn_buttonIsClicked = false
-                search_button_titlebtn.setBackgroundResource(R.drawable.button_gray)
-                titlebtn_buttonIsClicked = false
-                search_button_writerbtn.setBackgroundResource(R.drawable.button_gray)
-                writerbtn_buttonIsClicked = false
-
-                search_button_titlebtn.setBackgroundResource(R.drawable.button_black)
-                titlebtn_buttonIsClicked = true
-            } else {
-                search_button_titlebtn.setBackgroundResource(R.drawable.button_gray)
-                titlebtn_buttonIsClicked = false
-            }
-        }
-        search_button_writerbtn.setOnClickListener {
-            if (!writerbtn_buttonIsClicked) {
-                search_button_contentbtn.setBackgroundResource(R.drawable.button_gray)
-                contentbtn_buttonIsClicked = false
-                search_button_tagbtn.setBackgroundResource(R.drawable.button_gray)
-                tagbtn_buttonIsClicked = false
-                search_button_titlebtn.setBackgroundResource(R.drawable.button_gray)
-                titlebtn_buttonIsClicked = false
-                search_button_writerbtn.setBackgroundResource(R.drawable.button_gray)
-                writerbtn_buttonIsClicked = false
-
-                search_button_writerbtn.setBackgroundResource(R.drawable.button_black)
-                writerbtn_buttonIsClicked = true
-            } else {
-                search_button_writerbtn.setBackgroundResource(R.drawable.button_gray)
-                writerbtn_buttonIsClicked = false
-            }
-        }
-
+    fun onSearchButtonClicked(view: View) {
+        val text = (view as? TextView)?.text ?: return
+        selectedButton.value = text.toString()
     }
 }

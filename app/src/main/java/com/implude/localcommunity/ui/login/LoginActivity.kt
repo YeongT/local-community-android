@@ -3,103 +3,76 @@ package com.implude.localcommunity.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.implude.localcommunity.network.APIConnect
+import androidx.lifecycle.lifecycleScope
 import com.implude.localcommunity.R
+import com.implude.localcommunity.network.AuthApi
+import com.implude.localcommunity.network.Network
 import com.implude.localcommunity.network.models.UserLoginModel
-import com.implude.localcommunity.network.models.UserLoginRespond
 import com.implude.localcommunity.ui.signup.SignUpActivity
+import com.implude.localcommunity.util.EMAIL_REGEX
+import com.implude.localcommunity.util.PASSWORD_REGEX
+import com.implude.localcommunity.util.showToast
 import kotlinx.android.synthetic.main.activity_login.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import kotlinx.coroutines.launch
+import retrofit2.awaitResponse
 import java.util.regex.Pattern
 
-
 class LoginActivity : AppCompatActivity() {
+    private val authApi: AuthApi by lazy {
+        Network.retrofit.create(AuthApi::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl(getString(R.string.app_api_server_url))
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        setUpViews()
+    }
 
-        Login_TextView_FindId.setOnClickListener(({
-            /*#SHOULD LAUNCH FINDIDPW ACTIVITY*/
-        }))
+    private fun setUpViews() {
+        Login_TextView_FindId.setOnClickListener {
+            // TODO : Launch FindIdPwActivity
+        }
 
-        Login_TextView_Register.setOnClickListener(({
+        Login_TextView_Register.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
-        }))
+        }
 
-        Login_Button_LoginButton.setOnClickListener(({
-            val passwordChk =
-                Pattern.compile("^.*(?=^.{8,15}\$)(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@#\$%^&+=]).*")
-            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(Login_EditText_Id.text.toString())
-                    .matches()
-            ) Toast.makeText(this, getString(R.string.login_alert_id), Toast.LENGTH_SHORT).show()
-            else if (!passwordChk.toRegex()
-                    .matches(Login_EditText_Pwd.text.toString())
-            ) Toast.makeText(this, getString(R.string.login_alert_pw), Toast.LENGTH_SHORT).show()
-            else {
-                val loginModel = UserLoginModel(
-                    Login_EditText_Id.text.toString(),
-                    Login_EditText_Pwd.text.toString()
-                )
+        Login_Button_LoginButton.setOnClickListener {
+            checkValidation()
+        }
+    }
 
-                val api = retrofit.create(APIConnect::class.java)
-                api.userLogin(loginModel).enqueue(object : Callback<UserLoginRespond> {
-                    override fun onResponse(
-                        call: Call<UserLoginRespond>,
-                        response: Response<UserLoginRespond>
-                    ) {
-                        when (response.code()) {
-                            200 -> {
-                                val temp = Toast.makeText(
-                                    this@LoginActivity,
-                                    getString(R.string.login_succeed_logintask),
-                                    Toast.LENGTH_SHORT
-                                )
-                                temp.setGravity(
-                                    Gravity.CENTER,
-                                    Gravity.TOP,
-                                    Gravity.CENTER
-                                )
-                                temp.show()
-                            }
-                            409 -> Toast.makeText(
-                                this@LoginActivity,
-                                getString(R.string.login_error_authfail),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            412 -> Toast.makeText(
-                                this@LoginActivity,
-                                getString(R.string.login_error_invalid_format),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                            else -> Toast.makeText(
-                                this@LoginActivity,
-                                getString(R.string.login_error_serverfail),
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }
+    private fun checkValidation() {
+        val id = Login_EditText_Id.text.toString()
+        val pw = Login_EditText_Pwd.text.toString()
 
-                    override fun onFailure(call: Call<UserLoginRespond>, t: Throwable) {
-                        Log.e("Login_err", t.message.toString())
-                        t.printStackTrace()
-                    }
+        if (Pattern.matches(EMAIL_REGEX, id)) {
+            showToast(R.string.login_alert_id)
+        } else if (!Pattern.matches(PASSWORD_REGEX, pw)) {
+            showToast(R.string.login_alert_pw)
+        } else {
+            lifecycleScope.launch { login(id, pw) }
+        }
+    }
 
-                })
+    private suspend fun login(id: String, pw: String) {
+        val loginModel = UserLoginModel(id, pw)
+
+        try {
+            val response = authApi.userLogin(loginModel).awaitResponse()
+            when (response.code()) {
+                200 -> showToast(R.string.login_succeed_logintask)
+                409 -> showToast(R.string.login_error_authfail)
+                412 -> showToast(R.string.login_error_invalid_format)
+                else -> {
+                    showToast(R.string.login_error_serverfail)
+                    Log.d("testing", response.code().toString())
+                }
             }
-        }))
-
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }

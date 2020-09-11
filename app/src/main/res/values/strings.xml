@@ -50,7 +50,7 @@
     <string name="signup_email">이메일을 입력해주세요 </string>
     <string name="signup_pwd">비밀번호를 입력해주세요</string>
     <string name="signup_phonenum">전화번호를 입력해주세요</string>
-    <string name="signup_email_err"> "올바른 이매일 형식이 아닙니다."</string>
+    <string name="signup_email_err"> "올바른 이메일 형식이 아닙니다."</string>
     <string name="signup_pwd_err"> "올바른 비밀번호 형식이 아닙니다."</string>
     <string name="signup_phonenum_err"> "올바른 전화번호 형식이 아닙니다."</string>
     <string name="signup_email_correct"> "올바른 이메일 형식입니다."</string>

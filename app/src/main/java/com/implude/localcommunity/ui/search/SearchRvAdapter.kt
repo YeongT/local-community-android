@@ -4,33 +4,26 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.implude.localcommunity.R
+import kotlinx.android.synthetic.main.search_item.view.*
 
-class SearchRvAdapter(val context: Context, val searchList: ArrayList<Search>) :
+class SearchRvAdapter(val context: Context, private val searchList: ArrayList<Search>) :
     RecyclerView.Adapter<SearchRvAdapter.Holder>() {
 
-    inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-        val search_item_image = itemView?.findViewById<ImageView>(R.id.search_item_image)
-        val search_item_title = itemView?.findViewById<TextView>(R.id.search_item_title)
-        val search_item_explain = itemView?.findViewById<TextView>(R.id.search_item_explain)
+    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val searchItemImage = itemView.search_item_image
+        private val searchItemTitle = itemView.search_item_title
+        private val searchItemExplain = itemView.search_item_explain
 
         fun bind(search: Search, context: Context) {
-            if (search.item_image != "") {
-                val resourceId = context.resources.getIdentifier(
-                    search.item_image,
-                    "drawable",
-                    context.packageName
-                )
-                search_item_image?.setImageResource(resourceId)
-            } else {
-                search_item_image?.setImageResource(R.mipmap.ic_launcher)
-            }
+            val imageResource = if (search.item_image != "")
+                context.resources.getIdentifier(search.item_image, "drawable", context.packageName)
+            else R.mipmap.ic_launcher
 
-            search_item_title?.text = search.item_title
-            search_item_explain?.text = search.item_explain
+            searchItemImage.setImageResource(imageResource)
+            searchItemTitle.text = search.item_title
+            searchItemExplain.text = search.item_explain
         }
     }
 
@@ -44,6 +37,6 @@ class SearchRvAdapter(val context: Context, val searchList: ArrayList<Search>) :
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder?.bind(searchList[position], context)
+        holder.bind(searchList[position], context)
     }
 }
