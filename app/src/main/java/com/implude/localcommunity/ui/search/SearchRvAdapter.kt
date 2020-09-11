@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.search
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.implude.localcommunity.R
 
 class SearchRvAdapter(val context: Context, val searchList: ArrayList<Search>) :
     RecyclerView.Adapter<SearchRvAdapter.Holder>() {

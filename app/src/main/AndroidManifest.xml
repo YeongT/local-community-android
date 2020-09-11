@@ -12,15 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LinkActivity"></activity>
-        <activity android:name=".ArticleAddActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".ui.link.LinkActivity"></activity>
+        <activity android:name=".ui.article_add.ArticleAddActivity" />
+        <activity android:name=".ui.profile.ProfileActivity" />
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.signup.SignUpActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

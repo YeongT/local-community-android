@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.home.new_feed
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.implude.localcommunity.R
 
 class NewsFeedRecyclerViewAdapter(
     private val context: Context,

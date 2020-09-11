@@ -1,8 +1,9 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.search
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.implude.localcommunity.R
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity() {

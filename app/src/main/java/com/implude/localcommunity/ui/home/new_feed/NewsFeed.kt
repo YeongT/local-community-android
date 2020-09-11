@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.home.new_feed
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

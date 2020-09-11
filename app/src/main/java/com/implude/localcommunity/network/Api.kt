@@ -1,7 +1,7 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.network
 
-import com.implude.localcommunity.models.ApiResponse
-import com.implude.localcommunity.models.UserRegisterModel
+import com.implude.localcommunity.network.models.ApiResponse
+import com.implude.localcommunity.network.models.UserRegisterModel
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST

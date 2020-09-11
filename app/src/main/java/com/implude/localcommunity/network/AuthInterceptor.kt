@@ -1,6 +1,5 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.network
 
-import com.implude.localcommunity.util.toBase64
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException

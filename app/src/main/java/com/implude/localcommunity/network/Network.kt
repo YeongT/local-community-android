@@ -1,5 +1,6 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.network
 
+import com.implude.localcommunity.ui.signup.BASE_URL
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.network.models
 
 import com.google.gson.annotations.SerializedName
 

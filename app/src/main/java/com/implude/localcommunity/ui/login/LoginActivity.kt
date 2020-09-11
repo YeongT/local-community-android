@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,11 @@ import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.implude.localcommunity.models.UserLoginModel
-import com.implude.localcommunity.models.UserLoginRespond
+import com.implude.localcommunity.network.APIConnect
+import com.implude.localcommunity.R
+import com.implude.localcommunity.network.models.UserLoginModel
+import com.implude.localcommunity.network.models.UserLoginRespond
+import com.implude.localcommunity.ui.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback

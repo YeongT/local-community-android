@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.home
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,12 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.implude.localcommunity.*
+import com.implude.localcommunity.ui.article_add.ArticleAddActivity
+import com.implude.localcommunity.ui.home.new_feed.NewsFeed
+import com.implude.localcommunity.ui.home.new_feed.NewsFeedRecyclerViewAdapter
+import com.implude.localcommunity.ui.login.LoginActivity
+import com.implude.localcommunity.ui.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_home.*
 
 private var mFirebaseAnalytics: FirebaseAnalytics? = null
