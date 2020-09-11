@@ -16,6 +16,7 @@ import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.widget.Autocomplete
 import com.google.android.libraries.places.widget.AutocompleteActivity
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode
+import com.implude.localcommunity.BuildConfig.GOOGLE_PLACE
 import com.implude.localcommunity.models.ApiResponse
 import com.implude.localcommunity.models.UserRegisterModel
 import kotlinx.android.synthetic.main.activity_sign.*
@@ -41,7 +42,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(R.layout.activity_sign)
 
         signup_area.setOnClickListener {
-            Places.initialize(applicationContext, getString(R.string.place_api_key))
+            Places.initialize(applicationContext, GOOGLE_PLACE)
             val fields = listOf(Place.Field.ADDRESS)
             val intent =
                 Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fields).build(this)
@@ -62,7 +63,7 @@ class SignUpActivity : AppCompatActivity() {
 
 
             if (!Pattern.matches(
-                    "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}\$",
+                    "^[0-9a-zA-Z\\_\\-\\.]+@[a-zA-Z\\_\\-\\.]+?\\.[a-zA-Z]{2,3}\$",
                     email
                 )
             ) {

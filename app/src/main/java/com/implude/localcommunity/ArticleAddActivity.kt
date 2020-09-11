@@ -7,13 +7,11 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_article_add.*
-import kotlinx.android.synthetic.main.news_feed_item.*
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,9 +38,8 @@ class ArticleAddActivity : AppCompatActivity() {
 
         /* 게시 버튼 눌렀을 때 */
         ArticleAdd_TextView_newsFeedUpload.setOnClickListener(({
-            if (imageUrl == "") Home_ImageView_newsFeedImage.visibility = View.GONE
 
-            Log.e("이미지 링크 : ", imageUrl)
+            Log.e("이미지 링크", imageUrl)
             val model = NewsFeedModel(
                 target,
                 ArticleAdd_EditText_Title.text.toString(),
@@ -67,6 +64,7 @@ class ArticleAddActivity : AppCompatActivity() {
                     response: Response<ApiResponseModel>,
                 ) {
                     Log.e("서버 연결 성공", response.code().toString())
+                    Log.e("모델", response.body()?.toString())
 
                     /* 서버에서 처리하는데 문제가 생김. */
                     if (response.code().toString() != "200") {
