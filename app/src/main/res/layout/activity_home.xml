@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HomeActivity">
+    tools:context=".ui.home.HomeActivity">
 
     <!--상단 알림창 툴바 -->
     <RelativeLayout

@@ -1,9 +1,15 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.link
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.implude.localcommunity.ui.login.LoginActivity
+import com.implude.localcommunity.ui.profile.ProfileActivity
+import com.implude.localcommunity.R
+import com.implude.localcommunity.ui.home.HomeActivity
+import com.implude.localcommunity.ui.search.SearchActivity
+import com.implude.localcommunity.ui.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_link.*
 
 private var mFirebaseAnalytics: FirebaseAnalytics? = null

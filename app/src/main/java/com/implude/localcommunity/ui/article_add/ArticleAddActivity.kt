@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.article_add
 
 import android.app.Activity
 import android.content.Intent
@@ -11,6 +11,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.firebase.firestore.FirebaseFirestore
+import com.implude.localcommunity.*
+import com.implude.localcommunity.network.models.ApiResponseModel
+import com.implude.localcommunity.network.ImageRepository
+import com.implude.localcommunity.network.Network
+import com.implude.localcommunity.network.NewsFeedApi
+import com.implude.localcommunity.network.models.NewsFeedModel
+import com.implude.localcommunity.ui.home.new_feed.NewsFeed
 import kotlinx.android.synthetic.main.activity_article_add.*
 import kotlinx.coroutines.launch
 import retrofit2.Call

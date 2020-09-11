@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.ui.search
 
 import android.graphics.Rect
 import android.view.View

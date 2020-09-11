@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.network
 
 import android.graphics.Bitmap
 import android.net.Uri

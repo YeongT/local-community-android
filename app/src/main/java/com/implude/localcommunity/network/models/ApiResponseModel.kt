@@ -1,4 +1,4 @@
-package com.implude.localcommunity
+package com.implude.localcommunity.network.models
 
 data class ApiResponseModel(
     val statusCode: Int = 0,

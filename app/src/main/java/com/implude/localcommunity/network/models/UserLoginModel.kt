@@ -1,4 +1,4 @@
-package com.implude.localcommunity.models
+package com.implude.localcommunity.network.models
 
 data class UserLoginModel(
     val email: String,
