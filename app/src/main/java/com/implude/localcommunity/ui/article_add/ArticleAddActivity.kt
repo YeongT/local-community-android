@@ -14,7 +14,6 @@ import com.implude.localcommunity.network.Network
 import com.implude.localcommunity.network.NewsFeedApi
 import com.implude.localcommunity.network.models.NewsFeedModel
 import com.implude.localcommunity.ui.home.new_feed.NewsFeed
-import com.implude.localcommunity.util.showToast
 import kotlinx.android.synthetic.main.activity_article_add.*
 import kotlinx.coroutines.launch
 import retrofit2.awaitResponse
@@ -37,8 +36,6 @@ class ArticleAddActivity : AppCompatActivity() {
 
     private fun setUpViews() {
         ArticleAdd_TextView_newsFeedUpload.setOnClickListener {
-            Log.e("이미지 링크", imageUrl)
-
             val title = ArticleAdd_EditText_Title.text.toString()
             val content = ArticleAdd_EditText_content.text.toString()
             val model = NewsFeedModel(target, title, content, "[\"야쓰\"]", "[\"$imageUrl\"]", "[]")
@@ -60,11 +57,11 @@ class ArticleAddActivity : AppCompatActivity() {
     private suspend fun requestNewArticle(model: NewsFeedModel) {
         try {
             val response = api.newArticle(model).awaitResponse()
-            when (val responseCode = response.code()) {
+            when (response.body()?.statusCode) {
                 200 -> newArticleAddSucceeded()
-                403 -> Log.e("유저 로그인 키 값이 유효하지 않습니다.", responseCode.toString())
-                412 -> Log.e("서버가 요구하는 데이터 포맷 충족X", responseCode.toString())
-                500 -> Log.e("서버에 예기치 못한 문제가 발생했습니다.", responseCode.toString())
+                403 -> Log.e("TEST_ARTICLE", "유저 로그인 키 값이 유효하지 않습니다.")
+                412 -> Log.e("TEST_ARTICLE", "서버가 요구하는 데이터 포맷 충족X")
+                500 -> Log.e("TEST_ARTICLE", "서버에 예기치 못한 문제가 발생했습니다.")
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -72,8 +69,6 @@ class ArticleAddActivity : AppCompatActivity() {
     }
 
     private fun newArticleAddSucceeded() {
-        showToast("게시물을 성공적으로 추가했습니다.")
-
         val title = ArticleAdd_EditText_Title.text.toString()
         val content = ArticleAdd_EditText_content.text.toString()
         val newFeedItem = NewsFeed(target, title, content, "#야쓰", imageUrl, "없음")

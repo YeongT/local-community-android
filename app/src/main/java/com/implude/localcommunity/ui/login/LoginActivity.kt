@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
         val id = Login_EditText_Id.text.toString()
         val pw = Login_EditText_Pwd.text.toString()
 
-        if (Pattern.matches(EMAIL_REGEX, id)) {
+        if (!Pattern.matches(EMAIL_REGEX, id)) {
             showToast(R.string.login_alert_id)
         } else if (!Pattern.matches(PASSWORD_REGEX, pw)) {
             showToast(R.string.login_alert_pw)
@@ -62,13 +62,13 @@ class LoginActivity : AppCompatActivity() {
 
         try {
             val response = authApi.userLogin(loginModel).awaitResponse()
-            when (response.code()) {
+            Log.e("TEST_LOGIN", response.body().toString())
+            when (response.body()?.statusCode) {
                 200 -> showToast(R.string.login_succeed_logintask)
                 409 -> showToast(R.string.login_error_authfail)
                 412 -> showToast(R.string.login_error_invalid_format)
                 else -> {
                     showToast(R.string.login_error_serverfail)
-                    Log.d("testing", response.code().toString())
                 }
             }
         } catch (e: Exception) {

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -126,9 +127,10 @@ class SignUpActivity : AppCompatActivity() {
     private suspend fun requestSignUp(model: UserRegisterModel) {
         try {
             val response = api.signUp(model).awaitResponse()
-            when (response.code()) {
+            Log.e("TEST_LOGIN", response.body().toString())
+            when (response.body()?.statusCode) {
                 200 -> showToast("회원가입에 성공하였습니다.")
-                409 -> showToast("이메일이 중복되었습니다.")
+                409 -> showToast("로그인 인증에 실패하였습니다.")
                 else -> showToast("회원가입 오류입니다.")
             }
         } catch (e: Exception) {

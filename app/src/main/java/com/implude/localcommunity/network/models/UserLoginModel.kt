@@ -1,11 +1,10 @@
 package com.implude.localcommunity.network.models
 
-data class UserLoginModel(
-    val email: String,
-    val password: String
-)
+import com.google.gson.annotations.SerializedName
 
-data class UserLoginRespond(
-    val result: String,
-    val token: String
+data class UserLoginModel(
+    @SerializedName("email")
+    val email: String,
+    @SerializedName("password")
+    val password: String,
 )
