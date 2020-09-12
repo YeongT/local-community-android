@@ -10,11 +10,12 @@ private const val BASE_URL = "https://api.hakbong.me/"
 object Network {
     var jwtToken: String = ""
 
-    val retrofit: Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(httpClient())
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    val retrofit: Retrofit
+        get() = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .client(httpClient())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
     private fun httpClient(): OkHttpClient = OkHttpClient.Builder().run {
         addInterceptor(AuthInterceptor(jwtToken))
