@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.link.LinkActivity"></activity>
+        <activity android:name=".ui.link.LinkActivity" />
         <activity android:name=".ui.article_add.ArticleAddActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
         <activity android:name=".ui.home.HomeActivity" />
