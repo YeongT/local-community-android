@@ -79,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
         try {
             val response = authApi.userLogin(loginModel).awaitResponse()
             Log.e("TEST_LOGIN", response.body().toString())
-            when (response.body()?.statusCode) {
+            when (response.code()) {
                 200 -> loginSuccessAction(response)
                 409 -> showToast(R.string.login_error_authfail)
                 412 -> showToast(R.string.login_error_invalid_format)

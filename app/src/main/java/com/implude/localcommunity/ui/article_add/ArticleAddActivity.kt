@@ -57,7 +57,7 @@ class ArticleAddActivity : AppCompatActivity() {
     private suspend fun requestNewArticle(model: NewsFeedModel) {
         try {
             val response = api.newArticle(model).awaitResponse()
-            when (response.body()?.statusCode) {
+            when (response.code()) {
                 200 -> newArticleAddSucceeded()
                 403 -> Log.e("TEST_ARTICLE", "유저 로그인 키 값이 유효하지 않습니다.")
                 412 -> Log.e("TEST_ARTICLE", "서버가 요구하는 데이터 포맷 충족X")
