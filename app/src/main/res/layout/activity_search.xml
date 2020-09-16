@@ -9,9 +9,9 @@
     <FrameLayout
         android:id="@+id/search_framelayout_title"
         android:layout_width="wrap_content"
-        android:layout_height="95sp"
-        android:layout_marginStart="30sp"
-        android:layout_marginTop="30sp">
+        android:layout_height="67sp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp">
 
         <ImageView
             android:id="@+id/search_imageview_title"
@@ -28,7 +28,9 @@
             android:fontFamily="@font/ntsblack"
             android:text="@string/search_title"
             android:textColor="@color/black"
-            android:textSize="45sp" />
+            android:textSize="45sp"
+            android:includeFontPadding="false"/>
+
     </FrameLayout>
 
     <TextView
@@ -77,7 +79,8 @@
             android:fontFamily="@font/ntslight"
             android:hint="@string/search_edittext_hint"
             android:textColorHint="#D4D4D4"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:singleLine="true"/>
 
     </LinearLayout>
 
