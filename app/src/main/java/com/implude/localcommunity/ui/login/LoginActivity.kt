@@ -1,12 +1,14 @@
 package com.implude.localcommunity.ui.login
 
-import android.app.Activity
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.lifecycle.lifecycleScope
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKeys
 import com.implude.localcommunity.R
 import com.implude.localcommunity.network.AuthApi
 import com.implude.localcommunity.network.Network
@@ -23,18 +25,34 @@ import retrofit2.awaitResponse
 import java.util.regex.Pattern
 
 private const val KEY_TOKEN = "token"
+private const val KEY_USER_JWT = "userJwt"
 
 class LoginActivity : AppCompatActivity() {
     private val authApi: AuthApi by lazy {
         Network.retrofit.create(AuthApi::class.java)
     }
 
-    private val jwtPreferences by lazy { getSharedPreferences(this.packageName, Activity.MODE_PRIVATE) }
+    private val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+    private val sharedPreferences: SharedPreferences by lazy {
+        EncryptedSharedPreferences.create(
+            "security",
+            masterKeyAlias,
+            this,
+            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+        )
+    }
+
+    fun get() = sharedPreferences.getString(KEY_TOKEN, KEY_USER_JWT)
+    fun set(token: String) {
+        sharedPreferences.edit { putString(KEY_TOKEN, token) }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        checkUserJwtSaved()
         setUpViews()
     }
 
@@ -49,6 +67,18 @@ class LoginActivity : AppCompatActivity() {
 
         Login_Button_LoginButton.setOnClickListener {
             checkValidation()
+        }
+    }
+
+    private fun checkUserJwtSaved() {
+        val token = get() ?: ""
+
+        Log.e("token", token)
+        if (token.isBlank()) showToast("자동로그인 되지 않았습니다.")
+        else {
+            Network.jwtToken = token
+            showToast("자동로그인 성공했습니다.")
+            finish()
         }
     }
 
@@ -69,7 +99,7 @@ class LoginActivity : AppCompatActivity() {
         val userJwt = response.body()?.output?.token ?: throw Exception()
         Log.e("jwt", userJwt)
         showToast(R.string.login_succeed_logintask)
-        jwtPreferences.edit { putString(KEY_TOKEN, userJwt) }
+        set(userJwt)
         Network.jwtToken = userJwt
     }
 
