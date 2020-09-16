@@ -18,9 +18,9 @@
         <FrameLayout
             android:id="@+id/search_framelayout_title"
             android:layout_width="wrap_content"
-            android:layout_height="95sp"
-            android:layout_marginStart="30sp"
-            android:layout_marginTop="30sp">
+            android:layout_height="67dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp">
 
             <ImageView
                 android:id="@+id/search_imageview_title"
@@ -35,6 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/ntsblack"
+                android:includeFontPadding="false"
                 android:text="@string/search_title"
                 android:textColor="@color/black"
                 android:textSize="45sp" />
@@ -87,6 +88,7 @@
                 android:hint="@string/search_edittext_hint"
                 android:importantForAutofill="no"
                 android:inputType="text"
+                android:singleLine="true"
                 android:textColorHint="#D4D4D4"
                 android:textSize="16sp" />
 
