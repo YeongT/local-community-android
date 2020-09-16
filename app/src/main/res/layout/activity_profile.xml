@@ -21,20 +21,11 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/profile_cardview_userimage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardCornerRadius="65dp"
-                app:cardElevation="12dp">
-
-                <ImageView
-                    android:id="@+id/profile_imageview_userimage"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:src="@drawable/gagnammin" />
-
-            </androidx.cardview.widget.CardView>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:src="@drawable/gagnammin"
+                android:elevation="13dp"/>
 
             <FrameLayout
                 android:id="@+id/profile_framelayout_username_and_underbar"
@@ -66,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="17dp"
-                android:fontFamily="@font/ntregular"
+                android:fontFamily="@font/ntlight"
                 android:includeFontPadding="false"
                 android:text="@string/profile_user_description_example"
                 android:textColor="#000000"
@@ -86,8 +77,8 @@
                 android:id="@+id/profile_textview_user_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:fontFamily="@font/ntsblack"
                 android:text="@string/profile_text_user_information"
                 android:textColor="@color/black"
@@ -97,9 +88,9 @@
                 android:id="@+id/profile_button_change_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="25dp"
                 android:background="@drawable/round"
                 android:elevation="8dp"
                 android:fontFamily="@font/ntsmedium"
@@ -113,9 +104,9 @@
                 android:id="@+id/profile_button_withdraw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="25dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/round"
                 android:elevation="12dp"
@@ -131,9 +122,9 @@
             android:id="@+id/profile_constraintlayout_personal_information_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="25dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_linearlayout_user_information_layout">
 
@@ -274,8 +265,8 @@
                 android:id="@+id/profile_textview_service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
                 android:fontFamily="@font/ntsblack"
                 android:text="@string/profile_text_service"
                 android:textColor="@color/black"
@@ -285,9 +276,9 @@
                 android:id="@+id/profile_button_privacy_policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="25dp"
                 android:background="@drawable/round"
                 android:elevation="8dp"
                 android:fontFamily="@font/ntsmedium"
@@ -301,9 +292,9 @@
                 android:id="@+id/profile_button_check_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="25dp"
                 android:background="@drawable/round"
                 android:elevation="12dp"
                 android:fontFamily="@font/ntsmedium"
@@ -317,9 +308,9 @@
                 android:id="@+id/profile_button_terms_of_use"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="25dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="25dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/round"
                 android:elevation="12dp"
