@@ -128,7 +128,7 @@ class SignUpActivity : AppCompatActivity() {
         try {
             val response = api.signUp(model).awaitResponse()
             Log.e("TEST_LOGIN", response.body().toString())
-            when (response.body()?.statusCode) {
+            when (response.code()) {
                 200 -> showToast("회원가입에 성공하였습니다.")
                 409 -> showToast("로그인 인증에 실패하였습니다.")
                 else -> showToast("회원가입 오류입니다.")
