@@ -40,5 +40,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/btn_test5"
         android:text="Home" />
+    <Button
+        android:layout_below="@id/btn_test5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_test6"
+        android:text="Dialog" />
 
 </LinearLayout>

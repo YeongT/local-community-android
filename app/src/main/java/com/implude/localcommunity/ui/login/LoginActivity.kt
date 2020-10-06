@@ -14,10 +14,10 @@ import com.implude.localcommunity.network.AuthApi
 import com.implude.localcommunity.network.Network
 import com.implude.localcommunity.network.models.ApiTokenResponseModel
 import com.implude.localcommunity.network.models.UserLoginModel
+import com.implude.localcommunity.ui.dialog.startDialog
 import com.implude.localcommunity.ui.signup.SignUpActivity
 import com.implude.localcommunity.util.EMAIL_REGEX
 import com.implude.localcommunity.util.PASSWORD_REGEX
-import com.implude.localcommunity.util.showToast
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -74,10 +74,10 @@ class LoginActivity : AppCompatActivity() {
         val token = get() ?: ""
 
         Log.e("token", token)
-        if (token.isBlank()) showToast("자동로그인 되지 않았습니다.")
+        if (token.isBlank()) startDialog("자동로그인 되지 않았습니다.")
         else {
             Network.jwtToken = token
-            showToast("자동로그인 성공했습니다.")
+            startDialog("자동로그인 성공했습니다.")
             finish()
         }
     }
@@ -87,9 +87,9 @@ class LoginActivity : AppCompatActivity() {
         val pw = Login_EditText_Pwd.text.toString()
 
         if (!Pattern.matches(EMAIL_REGEX, id)) {
-            showToast(R.string.login_alert_id)
+            startDialog(R.string.login_alert_id.toString())
         } else if (!Pattern.matches(PASSWORD_REGEX, pw)) {
-            showToast(R.string.login_alert_pw)
+            startDialog(R.string.login_alert_pw.toString())
         } else {
             lifecycleScope.launch { login(id, pw) }
         }
@@ -98,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
     private fun loginSuccessAction(response: Response<ApiTokenResponseModel>) {
         val userJwt = response.body()?.output?.token ?: throw Exception()
         Log.e("jwt", userJwt)
-        showToast(R.string.login_succeed_logintask)
+        startDialog(R.string.login_succeed_logintask.toString())
         set(userJwt)
         Network.jwtToken = userJwt
     }
@@ -111,10 +111,10 @@ class LoginActivity : AppCompatActivity() {
             Log.e("TEST_LOGIN", response.body().toString())
             when (response.code()) {
                 200 -> loginSuccessAction(response)
-                409 -> showToast(R.string.login_error_authfail)
-                412 -> showToast(R.string.login_error_invalid_format)
+                409 -> startDialog(R.string.login_error_authfail.toString())
+                412 -> startDialog(R.string.login_error_invalid_format.toString())
                 else -> {
-                    showToast(R.string.login_error_serverfail)
+                    startDialog(R.string.login_error_serverfail.toString())
                 }
             }
         } catch (e: Exception) {

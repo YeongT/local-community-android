@@ -19,10 +19,11 @@ import com.implude.localcommunity.R
 import com.implude.localcommunity.network.AuthApi
 import com.implude.localcommunity.network.Network
 import com.implude.localcommunity.network.models.UserRegisterModel
+import com.implude.localcommunity.ui.dialog.startDialog
 import com.implude.localcommunity.util.EMAIL_REGEX
 import com.implude.localcommunity.util.PASSWORD_REGEX
 import com.implude.localcommunity.util.PHONE_REGEX
-import com.implude.localcommunity.util.showToast
+import com.implude.localcommunity.ui.dialog.startDialog
 import kotlinx.android.synthetic.main.activity_sign.*
 import kotlinx.coroutines.launch
 import retrofit2.awaitResponse
@@ -110,16 +111,16 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun isValid(email: String, password: String, phoneNumber: String) =
         if (!signup_chk_female.isChecked xor signup_chk_male.isChecked) {
-            showToast(R.string.Sign_err_gender)
+            startDialog(getString(R.string.Sign_err_gender))
             false
         } else if (!Pattern.matches(EMAIL_REGEX, email)) {
-            showToast(R.string.signup_email_err)
+            startDialog(getString(R.string.signup_email_err))
             false
         } else if (!Pattern.matches(PASSWORD_REGEX, password)) {
-            showToast(R.string.signup_pwd_err)
+            startDialog(getString(R.string.signup_pwd_err))
             false
         } else if (!Pattern.matches(PHONE_REGEX, phoneNumber)) {
-            showToast(R.string.signup_phonenum_err)
+            startDialog(getString(R.string.signup_phonenum_err))
             false
         } else true
 
@@ -129,9 +130,9 @@ class SignUpActivity : AppCompatActivity() {
             val response = api.signUp(model).awaitResponse()
             Log.e("TEST_LOGIN", response.body().toString())
             when (response.code()) {
-                200 -> showToast("회원가입에 성공하였습니다.")
-                409 -> showToast("로그인 인증에 실패하였습니다.")
-                else -> showToast("회원가입 오류입니다.")
+                200 -> startDialog("회원가입에 성공하였습니다.")
+                409 -> startDialog("로그인 인증에 실패하였습니다.")
+                else -> startDialog("회원가입 오류입니다.")
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -152,7 +153,7 @@ class SignUpActivity : AppCompatActivity() {
             }
             AutocompleteActivity.RESULT_ERROR -> {
                 val status = Autocomplete.getStatusFromIntent(data)
-                showToast(getString(R.string.Sign_err_location) + status.toString())
+                startDialog(getString(R.string.Sign_err_location) )
             }
         }
     }
