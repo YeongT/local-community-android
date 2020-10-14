@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.HomeActivity">
+    tools:context=".ui.main.fragment_home.HomeFragment">
 
     <!--상단 알림창 툴바 -->
     <RelativeLayout
@@ -297,24 +297,6 @@
 
         </RelativeLayout>
 
-    </RelativeLayout>
-
-    <!--하단 사용자 툴바 -->
-    <RelativeLayout
-        android:id="@+id/Home_RelativeLayout_TabBar"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/home_bar"
-        android:elevation="16dp">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/Home_CircleImageView_Profile"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_centerInParent="true"
-            android:elevation="24dp"
-            android:src="@drawable/arin"/>
     </RelativeLayout>
 
 </RelativeLayout>

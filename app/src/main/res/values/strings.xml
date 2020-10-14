@@ -76,4 +76,6 @@
     <string name="profile_text_privacy_policy">개인정보 처리방침</string>
     <string name="profile_text_check_update">업데이트 확인</string>
     <string name="profile_text_terms_of_use">이용약관</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

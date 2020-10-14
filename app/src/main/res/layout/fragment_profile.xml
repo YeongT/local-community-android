@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".ui.profile.ProfileActivity">
+        tools:context=".ui.main.fragment_profile.ProfileFragment">
 
         <LinearLayout
             android:id="@+id/profile_relativelayout_userimage_layout"
