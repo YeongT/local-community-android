@@ -1,4 +1,4 @@
-package com.implude.localcommunity.ui.home.new_feed
+package com.implude.localcommunity.ui.main.new_feed
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -13,7 +13,7 @@ import com.implude.localcommunity.network.ImageRepository
 import com.implude.localcommunity.network.Network
 import com.implude.localcommunity.network.NewsFeedApi
 import com.implude.localcommunity.network.models.NewsFeedModel
-import com.implude.localcommunity.ui.home.new_feed.NewsFeed
+import com.implude.localcommunity.ui.main.new_feed.NewsFeed
 import kotlinx.android.synthetic.main.activity_article_add.*
 import kotlinx.coroutines.launch
 import retrofit2.awaitResponse
