@@ -74,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
         val token = get() ?: ""
 
         Log.e("token", token)
-        if (token.isBlank()) showToast("자동로그인 되지 않았습니다.")
+        if (token.isBlank() || token == "userJwt") showToast("자동로그인 되지 않았습니다.")
         else {
             Network.jwtToken = token
             showToast("자동로그인 성공했습니다.")
