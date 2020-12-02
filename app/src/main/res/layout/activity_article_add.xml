@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.implude.localcommunity.ui.article_add.ArticleAddViewModel" />
+            type="com.implude.localcommunity.ui.article.add.ArticleAddViewModel" />
     </data>
 
     <RelativeLayout

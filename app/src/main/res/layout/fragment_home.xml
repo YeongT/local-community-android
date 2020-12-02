@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.fragment_home.HomeFragment">
 
     <!--상단 알림창 툴바 -->
@@ -51,78 +51,25 @@
             android:src="@drawable/notice" />
     </RelativeLayout>
 
+
     <!--커뮤니티 있을 때 레이아웃 -->
     <RelativeLayout
-        android:visibility="gone"
-        android:id="@+id/Home_RelativeLayout_Community"
-        android:layout_below="@id/Home_Title"
+        android:id="@+id/Home_RelativeLayout_In_Community"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Home_RelativeLayout_TabBar">
+        android:layout_below="@id/Home_Title"
+        android:visibility="visible">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Home_RecyclerView_newsFeedList"
+            android:id="@+id/Home_RecyclerView_CommunityList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@color/white"
-            tools:listitem="@layout/news_feed_item"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <RelativeLayout
-            android:id="@+id/LoginTest"
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/round"
-            android:backgroundTint="@color/gray"
-            android:elevation="12dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/ntsblack"
-                android:includeFontPadding="false"
-                android:text="jwt발급"
-                android:textColor="@color/white" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/Home_RelativeLayout_newArticle"
-            android:layout_width="120dp"
-            android:layout_height="45dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/round"
-            android:backgroundTint="@color/colorMain"
-            android:elevation="12dp">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="13dp"
-                android:src="@drawable/add" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/ntsblack"
-                android:includeFontPadding="false"
-                android:text="@string/new_article"
-                android:textColor="@color/white" />
-
-        </RelativeLayout>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/community_list_item" />
 
     </RelativeLayout>
 
@@ -131,10 +78,9 @@
         android:id="@+id/Home_RelativeLayout_No_Community"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/Home_RelativeLayout_TabBar"
         android:layout_below="@id/Home_Title"
-        android:visibility="visible"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="0dp"
+        android:visibility="gone">
 
         <ImageView
             android:id="@+id/Home_ImageView_Empty"
@@ -294,6 +240,80 @@
                 android:layout_marginEnd="15sp"
                 android:contentDescription="@null"
                 android:src="@drawable/find_community_image" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--뉴스피드 리스트 (재우가 이동 예정) -->
+    <RelativeLayout
+        android:id="@+id/Home_RelativeLayout_NewsFeed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Home_Title"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Home_RecyclerView_newsFeedList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/white"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/news_feed_item" />
+
+        <RelativeLayout
+            android:id="@+id/LoginTest"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/round"
+            android:backgroundTint="@color/gray"
+            android:elevation="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/ntsblack"
+                android:includeFontPadding="false"
+                android:text="jwt발급"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Home_RelativeLayout_newArticle"
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/round"
+            android:backgroundTint="@color/colorMain"
+            android:elevation="12dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="13dp"
+                android:src="@drawable/add" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/ntsblack"
+                android:includeFontPadding="false"
+                android:text="@string/new_article"
+                android:textColor="@color/white" />
 
         </RelativeLayout>
 

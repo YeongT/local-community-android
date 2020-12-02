@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.news_feed_item.view.*
 
 class NewsFeedRecyclerViewAdapter(
     private val context: Context,
-    private val NewsFeedList: ArrayList<NewsFeed>,
+    private val NewsFeedList: ArrayList<NewsFeed>
 ) :
     RecyclerView.Adapter<NewsFeedRecyclerViewAdapter.Holder>() {
 

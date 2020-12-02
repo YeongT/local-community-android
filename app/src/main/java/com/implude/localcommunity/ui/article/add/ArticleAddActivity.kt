@@ -1,4 +1,4 @@
-package com.implude.localcommunity.ui.article_add
+package com.implude.localcommunity.ui.article.add
 
 import android.app.Activity
 import android.content.Intent

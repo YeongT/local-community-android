@@ -10,9 +10,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.implude.localcommunity.R
 import com.implude.localcommunity.ui.article_add.ArticleAddActivity
+import com.implude.localcommunity.ui.home.community.Community
+import com.implude.localcommunity.ui.home.community.CommunityRvAdapter
 import com.implude.localcommunity.ui.main.new_feed.NewsFeed
 import com.implude.localcommunity.ui.main.new_feed.NewsFeedRecyclerViewAdapter
 import com.implude.localcommunity.ui.login.LoginActivity
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 private const val REQUEST_NEW_ARTICLE = 100
@@ -24,7 +27,14 @@ class HomeFragment : Fragment() {
     private val newsFeedAdapter by lazy {
         NewsFeedRecyclerViewAdapter(
             requireContext(),
-            arrayListOf()
+            newsFeedList
+        )
+    }
+    private var communityList = arrayListOf<Community>()
+    private val communityListAdapter by lazy {
+        CommunityRvAdapter(
+            requireContext(),
+            communityList
         )
     }
 
@@ -32,9 +42,21 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view: View = inflater.inflate(R.layout.fragment_home, container, false)
         setUpNewFeedRecyclerView(view)
+        setUpCommunityListRecyclerView(view)
+
+        for(i in 1 until 10) {
+            communityListAdapter.addItem(
+                Community(
+                    "김성호 통구이 커뮤니티",
+                    "https://i.pinimg.com/originals/f8/77/a8/f877a8b2fb2ec67c8ce09e60ac865b9b.jpg",
+                    "하남 성호를 맛있게 구워보야요",
+                    "1"
+                )
+            )
+        }
 
         view.LoginTest.setOnClickListener {
             val intent = Intent(context, LoginActivity::class.java)
@@ -64,13 +86,18 @@ class HomeFragment : Fragment() {
         view.Home_RecyclerView_newsFeedList.setHasFixedSize(true)
     }
 
+    private fun setUpCommunityListRecyclerView(view: View) {
+        view.Home_RecyclerView_CommunityList.adapter = communityListAdapter
+        view.Home_RecyclerView_CommunityList.setHasFixedSize(true)
+    }
+
     private fun toggleCommunityLayout(view: View) {
         if (communityJoined) {
             view.Home_RelativeLayout_No_Community.visibility = View.GONE
-            view.Home_RelativeLayout_Community.visibility = View.VISIBLE
+            view.Home_RelativeLayout_In_Community.visibility = View.VISIBLE
         } else {
             view.Home_RelativeLayout_No_Community.visibility = View.VISIBLE
-            view.Home_RelativeLayout_Community.visibility = View.GONE
+            view.Home_RelativeLayout_In_Community.visibility = View.GONE
         }
     }
 
