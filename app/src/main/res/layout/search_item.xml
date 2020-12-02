@@ -21,7 +21,7 @@
             android:id="@+id/search_item_image"
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/group26"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

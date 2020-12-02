@@ -21,8 +21,6 @@ class AuthInterceptor(private val jwtToken: String) : Interceptor {
             .addHeader("Authorization", authHeader)
             .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8")
 
-        if (chain.request().url().toString().contains("/post")) authHeader = jwtToken
-
         return chain.proceed(request.build())
     }
 }
