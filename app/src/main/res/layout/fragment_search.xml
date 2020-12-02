@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="activity"
-            type="com.implude.localcommunity.ui.search.SearchActivity" />
+            name="fragment"
+            type="com.implude.localcommunity.ui.main.fragment_search.SearchFragment" />
     </data>
 
     <LinearLayout
@@ -114,9 +113,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
-                android:background="@{activity.selectedButton.equals(@string/search_button_content) ? @drawable/button_black : @drawable/button_gray}"
+                android:background="@{fragment.selectedButton.equals(@string/search_button_content) ? @drawable/button_black : @drawable/button_gray}"
                 android:fontFamily="@font/ntsmedium"
-                android:onClick="onSearchButtonClicked"
                 android:paddingHorizontal="25dp"
                 android:text="@string/search_button_content"
                 android:textColor="@color/white"
@@ -127,9 +125,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:background="@{activity.selectedButton.equals(@string/search_button_tag) ? @drawable/button_black : @drawable/button_gray}"
+                android:background="@{fragment.selectedButton.equals(@string/search_button_tag) ? @drawable/button_black : @drawable/button_gray}"
                 android:fontFamily="@font/ntsmedium"
-                android:onClick="onSearchButtonClicked"
                 android:paddingHorizontal="25dp"
                 android:text="@string/search_button_tag"
                 android:textColor="@color/white"
@@ -140,9 +137,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:background="@{activity.selectedButton.equals(@string/search_button_title) ? @drawable/button_black : @drawable/button_gray}"
+                android:background="@{fragment.selectedButton.equals(@string/search_button_title) ? @drawable/button_black : @drawable/button_gray}"
                 android:fontFamily="@font/ntsmedium"
-                android:onClick="onSearchButtonClicked"
                 android:paddingHorizontal="25dp"
                 android:text="@string/search_button_title"
                 android:textColor="@color/white"
@@ -153,9 +149,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:background="@{activity.selectedButton.equals(@string/search_button_writer) ? @drawable/button_black : @drawable/button_gray}"
+                android:background="@{fragment.selectedButton.equals(@string/search_button_writer) ? @drawable/button_black : @drawable/button_gray}"
                 android:fontFamily="@font/ntsmedium"
-                android:onClick="onSearchButtonClicked"
                 android:paddingHorizontal="20dp"
                 android:text="@string/search_button_writer"
                 android:textColor="@color/white"

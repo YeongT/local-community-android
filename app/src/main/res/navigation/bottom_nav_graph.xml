@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav_graph.xml"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.implude.localcommunity.ui.main.fragment_home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.implude.localcommunity.ui.main.fragment_search.SearchFragment"
+        android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/memberFragment"
+        android:name="com.implude.localcommunity.ui.main.fragment_member.MemberFragment"
+        android:label="MemberFragment" />
+    <fragment
+        android:id="@+id/messengerFragment"
+        android:name="com.implude.localcommunity.ui.main.fragment_messenger.MessengerFragment"
+        android:label="MessengerFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.implude.localcommunity.ui.main.fragment_profile.ProfileFragment"
+        android:label="ProfileFragment" />
+</navigation>
