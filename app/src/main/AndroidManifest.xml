@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.main.MainActivity"></activity>
+        <activity android:name=".ui.member.Community_member_list"></activity>
+        <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.link.LinkActivity" />
         <activity android:name=".ui.article_add.ArticleAddActivity" />
         <activity android:name=".ui.profile.ProfileActivity" />
@@ -29,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.member.ProfileAct" />
     </application>
 
 </manifest>

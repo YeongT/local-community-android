@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/memberinfo"
+            android:textColor="@color/black"
+            android:layout_centerHorizontal="true"
+            android:includeFontPadding="false"
+            android:textSize="30sp" />
+
+
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="100dp"
+    android:layout_marginTop="30dp"
+    android:id="@+id/member_image_profileAct"
+    android:layout_below="@+id/member_membertext"
+    android:layout_centerHorizontal="true"
+    android:elevation="10dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_round"
+
+        />
+</androidx.cardview.widget.CardView>
+
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="67sp"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/member_membertext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/member_image_profileAct">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorMain"
+            android:contentDescription="@null"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ntsblack"
+            android:text="@string/member"
+            android:textColor="@color/black"
+            android:includeFontPadding="false"
+            android:textSize="45sp"
+            android:id="@+id/member_name_profileAct"
+            />
+
+    </FrameLayout>
+    <TextView
+        android:id="@+id/member_role_profileAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/member_membertext"
+        tools:text="Age" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/registered_community"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="가입된 거뮤니티"
+        android:layout_below="@+id/member_role_profileAct"
+        android:layout_marginTop="20dp"
+
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/registered_community"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/community_list"
+        android:overScrollMode="never"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        >
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>
