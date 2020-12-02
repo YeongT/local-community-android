@@ -1,4 +1,4 @@
-package com.implude.localcommunity.ui.article_add
+package com.implude.localcommunity.ui.article.add
 
 import android.app.Activity
 import android.content.Intent
@@ -6,9 +6,12 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import com.implude.localcommunity.R
+import com.implude.localcommunity.databinding.ActivityArticleAddBinding
 import com.implude.localcommunity.network.ImageRepository
 import com.implude.localcommunity.network.Network
 import com.implude.localcommunity.network.NewsFeedApi
@@ -27,10 +30,14 @@ class ArticleAddActivity : AppCompatActivity() {
     private val target: String = "5f2e51812acae6c5d32977f0"
     private var imageUrl: String = ""
 
+    private val vm by viewModels<ArticleAddViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_article_add)
-
+        val binding: ActivityArticleAddBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_article_add)
+        binding.lifecycleOwner = this
+        binding.vm = vm
         setUpViews()
     }
 
@@ -57,6 +64,7 @@ class ArticleAddActivity : AppCompatActivity() {
     private suspend fun requestNewArticle(model: NewsFeedModel) {
         try {
             val response = api.newArticle(model).awaitResponse()
+            Log.e("TEST_ARTICLE", response.code().toString())
             when (response.code()) {
                 200 -> newArticleAddSucceeded()
                 403 -> Log.e("TEST_ARTICLE", "유저 로그인 키 값이 유효하지 않습니다.")

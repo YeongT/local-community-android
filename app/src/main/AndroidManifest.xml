@@ -15,11 +15,8 @@
         <activity android:name="com.implude.localcommunity.ui.community.create.CreateCommunityActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.link.LinkActivity" />
-        <activity android:name=".ui.article_add.ArticleAddActivity" />
-        <activity android:name=".ui.profile.ProfileActivity" />
-        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.article.add.ArticleAddActivity" />
         <activity android:name=".ui.login.LoginActivity" />
-        <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.signup.SignUpActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"
