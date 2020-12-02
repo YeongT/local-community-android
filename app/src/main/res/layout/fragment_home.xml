@@ -51,14 +51,13 @@
             android:src="@drawable/notice" />
     </RelativeLayout>
 
-
     <!--커뮤니티 있을 때 레이아웃 -->
     <RelativeLayout
         android:id="@+id/Home_RelativeLayout_In_Community"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Home_Title"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Home_RecyclerView_CommunityList"
@@ -80,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/Home_Title"
         android:layout_marginTop="0dp"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/Home_ImageView_Empty"

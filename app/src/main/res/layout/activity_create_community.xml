@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.community.create.CreateCommunityActivity">
+
+    <FrameLayout
+        android:id="@+id/create_community_framelayout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/create_community_imageview_title_underbar"
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorMain"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/create_community_textview_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ntsblack"
+            android:includeFontPadding="false"
+            android:text="@string/create_community_title"
+            android:textColor="@color/black"
+            android:textSize="35sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/create_community_textview_describe_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/ntsmedium"
+        android:includeFontPadding="false"
+        android:text="@string/create_community_describe_1"
+        android:textColor="#959595"
+        android:textSize="17sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_community_framelayout_title" />
+
+    <TextView
+        android:id="@+id/create_community_textview_describe_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/ntsblack"
+        android:includeFontPadding="false"
+        android:text="@string/create_community_describe_2"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_community_textview_describe_1" />
+
+    <ImageButton
+        android:id="@+id/create_community_imagebutton_add_image"
+        android:layout_width="126dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle"
+        android:contentDescription=""
+        android:scaleType="centerCrop"
+        android:src="@drawable/add_image_with_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_textview_describe_2" />
+
+    <TextView
+        android:id="@+id/create_community_textview_community_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/ntregular"
+        android:text="@string/create_community_text_community_name"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_imagebutton_add_image" />
+
+    <EditText
+        android:id="@+id/create_community_edittext_community_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/round"
+        android:elevation="8dp"
+        android:fontFamily="@font/ntregular"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="5dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_textview_community_name"
+        tools:text="Lolem Ipsum" />
+
+    <TextView
+        android:id="@+id/create_community_textview_community_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/ntregular"
+        android:inputType="text"
+        android:text="@string/create_community_text_community_location"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_edittext_community_name" />
+
+    <EditText
+        android:id="@+id/create_community_edittext_community_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/round"
+        android:elevation="8dp"
+        android:fontFamily="@font/ntregular"
+        android:includeFontPadding="false"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="5dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_textview_community_location"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit" />
+
+    <TextView
+        android:id="@+id/create_community_textview_community_describe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/ntregular"
+        android:inputType="text"
+        android:text="@string/create_community_text_community_describe"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_edittext_community_location" />
+
+    <EditText
+        android:id="@+id/create_community_edittext_community_describe"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/round"
+        android:elevation="8dp"
+        android:fontFamily="@font/ntregular"
+        android:includeFontPadding="false"
+        android:lines="2"
+        android:maxLines="2"
+        android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="5dp"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_textview_community_describe"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+
+    <TextView
+        android:id="@+id/create_community_textview_community_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/ntregular"
+        android:inputType="text"
+        android:text="@string/create_community_text_tag"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_edittext_community_describe" />
+
+    <LinearLayout
+        android:id="@+id/create_community_linearlayout_tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_textview_community_tag">
+
+        <TextView
+            android:id="@+id/create_community_textview_tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_black"
+            android:elevation="5dp"
+            android:fontFamily="@font/ntsmedium"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="25dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/search_button_content"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/create_community_textview_tag2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_black"
+            android:elevation="5dp"
+            android:fontFamily="@font/ntsmedium"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="25dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/search_button_tag"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/create_community_cardview_createbtn"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="@font/ntsblack"
+        android:gravity="center"
+        app:cardBackgroundColor="#FFBC1E"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/create_community_linearlayout_tags">
+
+        <TextView
+            android:id="@+id/create_community_textview_createbtn_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/ntsblack"
+            android:text="@string/create_community_btn_text"
+            android:textColor="#ffffff"
+            android:textSize="13sp" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

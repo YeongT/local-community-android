@@ -9,7 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.implude.localcommunity.R
-import com.implude.localcommunity.ui.article_add.ArticleAddActivity
+import com.implude.localcommunity.ui.article.add.ArticleAddActivity
+import com.implude.localcommunity.ui.community.create.CreateCommunityActivity
 import com.implude.localcommunity.ui.home.community.Community
 import com.implude.localcommunity.ui.home.community.CommunityRvAdapter
 import com.implude.localcommunity.ui.main.new_feed.NewsFeed
@@ -74,6 +75,11 @@ class HomeFragment : Fragment() {
         view.Home_ImageView_noticeIcon.setOnClickListener {
             communityJoined = !communityJoined
             toggleCommunityLayout(view)
+        }
+
+        view.Home_ImageButton_CreateCommunity.setOnClickListener {
+            val intent = Intent(context, CreateCommunityActivity::class.java)
+            startActivity(intent)
         }
 
         toggleCommunityLayout(view)
