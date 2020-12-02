@@ -9,9 +9,10 @@
         android:fullBackupContent="false"
         android:icon="@drawable/applogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.community.create.CreateCommunityActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.link.LinkActivity" />
         <activity android:name=".ui.article.add.ArticleAddActivity" />

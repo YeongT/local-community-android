@@ -19,7 +19,7 @@ class SearchRvAdapter(val context: Context, private val searchList: ArrayList<Se
         fun bind(search: Search, context: Context) {
             val imageResource = if (search.item_image != "")
                 context.resources.getIdentifier(search.item_image, "drawable", context.packageName)
-            else R.mipmap.ic_launcher
+            else R.drawable.group26
 
             searchItemImage.setImageResource(imageResource)
             searchItemTitle.text = search.item_title

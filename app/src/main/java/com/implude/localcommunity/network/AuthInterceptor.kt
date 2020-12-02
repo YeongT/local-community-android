@@ -14,11 +14,12 @@ class AuthInterceptor(private val jwtToken: String) : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder()
         var authHeader = "Basic $LOCAL_COMMUNITY_API_KEY"
+        if (chain.request().url().toString().contains("/post")) authHeader = jwtToken
+        if (chain.request().url().toString().contains("/group")) authHeader = jwtToken
+
         val request = builder
             .addHeader("Authorization", authHeader)
             .addHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8")
-
-        if (chain.request().url().toString().contains("/post")) authHeader = jwtToken
 
         return chain.proceed(request.build())
     }

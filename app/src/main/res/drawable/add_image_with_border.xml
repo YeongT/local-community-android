@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval" android:padding="10dp">
+            <solid android:color="#ffffff"></solid>
+            <corners
+                android:bottomRightRadius="15dp"
+                android:bottomLeftRadius="15dp"
+                android:topRightRadius="15dp"
+                android:topLeftRadius="15dp" />
+            <stroke android:width="2dp" android:color="#707070"
+                android:dashWidth="7dp" android:dashGap="10dp"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/add_image"/>
+</layer-list>
