@@ -12,6 +12,7 @@ class AuthInterceptor(private val jwtToken: String) : Interceptor {
         val builder = chain.request().newBuilder()
         var authHeader = "Basic $LOCAL_COMMUNITY_API_KEY"
         if (chain.request().url().toString().contains("/post")) authHeader = jwtToken
+        if (chain.request().url().toString().contains("/group")) authHeader = jwtToken
 
         val request = builder
             .addHeader("Authorization", authHeader)

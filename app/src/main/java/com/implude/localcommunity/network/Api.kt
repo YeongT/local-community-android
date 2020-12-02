@@ -1,9 +1,6 @@
 package com.implude.localcommunity.network
 
-import com.implude.localcommunity.network.models.ApiTokenResponseModel
-import com.implude.localcommunity.network.models.NewsFeedModel
-import com.implude.localcommunity.network.models.UserLoginModel
-import com.implude.localcommunity.network.models.UserRegisterModel
+import com.implude.localcommunity.network.models.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -15,6 +12,11 @@ interface AuthApi {
 
     @POST("auth/login")
     fun userLogin(@Body param: UserLoginModel): Call<ApiTokenResponseModel>
+}
+
+interface CreateCommunityApi {
+    @PUT("group/create")
+    fun createCommunity(@Body param: CreateCommunityModel): Call<CreateCommunityResponseModel>
 }
 
 interface NewsFeedApi {

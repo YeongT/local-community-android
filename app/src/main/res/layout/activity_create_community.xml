@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.create_community.CreateCommunityActivity">
+    tools:context=".ui.community.create.CreateCommunityActivity">
 
     <FrameLayout
         android:id="@+id/create_community_framelayout_title"
@@ -65,10 +65,12 @@
 
     <ImageButton
         android:id="@+id/create_community_imagebutton_add_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="126dp"
+        android:layout_height="126dp"
         android:layout_marginTop="20dp"
-        android:background="@color/white"
+        android:background="@drawable/circle"
+        android:contentDescription=""
+        android:scaleType="centerCrop"
         android:src="@drawable/add_image_with_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
