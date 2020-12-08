@@ -1,7 +1,7 @@
 package com.implude.localcommunity.ui.member
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.implude.localcommunity.R
 import com.implude.localcommunity.ui.home.community.Community
 import com.implude.localcommunity.ui.home.community.CommunityRvAdapter
@@ -17,18 +17,21 @@ class ProfileAct : AppCompatActivity() {
             communityList
         )
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_member_profile)
 
-        val name = intent.getStringExtra("name")
-        val role = intent.getStringExtra("role")
-        val img = intent.getStringExtra("img")
+        val name: String? = intent.getStringExtra("name")
+        val role: String? = intent.getStringExtra("role")
+        val imgURL: String? = intent.getStringExtra("imgbyte")
 
-        member_name_profileAct.setText(name.toString())
-        member_role_profileAct.setText(role.toString())
 
-        for(i in 1 until 10) {
+        member_name_profileAct.text = name
+        member_role_profileAct.text = role
+//        member_image_profileAct.setImageDrawable(imgURL)
+
+        for (i in 1 until 10) {
             communityListAdapter.addItem(
                 Community(
                     "김성호 통구이 커뮤니티",

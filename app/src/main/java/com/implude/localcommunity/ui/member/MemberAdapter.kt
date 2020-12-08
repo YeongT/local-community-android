@@ -30,7 +30,7 @@ class MemberAdapter(
                 )
                 memberImage.setImageResource(resourceId)
             } else {
-                memberImage.setImageResource(R.drawable.arin)
+                memberImage.setImageResource(R.drawable.applogo)
             }
             memberName.text = mem.name
             memberRole.text = mem.role

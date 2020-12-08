@@ -17,7 +17,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/create_community_imageview_title_underbar"
             android:layout_width="match_parent"
             android:layout_height="20sp"
             android:layout_gravity="bottom"
@@ -25,7 +24,6 @@
             android:contentDescription="@null" />
 
         <TextView
-            android:id="@+id/create_community_textview_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/ntsblack"
@@ -208,7 +206,6 @@
         app:layout_constraintTop_toBottomOf="@id/create_community_textview_community_tag">
 
         <TextView
-            android:id="@+id/create_community_textview_tag1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -225,7 +222,6 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/create_community_textview_tag2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -259,7 +255,6 @@
         app:layout_constraintTop_toBottomOf="@id/create_community_linearlayout_tags">
 
         <TextView
-            android:id="@+id/create_community_textview_createbtn_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -5,13 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="2dp"
-    android:layout_marginBottom="2dp"
+    android:layout_marginBottom="6dp"
     android:layout_marginStart="4dp"
     android:layout_marginEnd="4dp">
+
     <androidx.cardview.widget.CardView
         app:cardCornerRadius="80dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -19,10 +20,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/circlecardview">
-    <ImageView
 
-        android:id="@+id/member_image"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/member_image"
+            android:src="@drawable/applogo"
+            android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#ffffff"
         android:elevation="10dp"/>

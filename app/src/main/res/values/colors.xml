@@ -10,7 +10,6 @@
     <color name="invisible">#00000000</color>
     <color name="correct">#1EFF70</color>
     <color name="incorrect">#FF1E3C</color>
-    <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#A8A7A7</color>
 </resources>

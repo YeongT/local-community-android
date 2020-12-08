@@ -110,7 +110,6 @@
             android:elevation="2dp">
 
             <RelativeLayout
-                android:id="@+id/Home_RelativeLayout_CreateCommunity_TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true">
@@ -138,7 +137,6 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/Home_TextView_CreateCommunity_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle2"
@@ -162,7 +160,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/Home_ImageButton_FindCommunity"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@id/Home_ImageButton_CreateCommunity"
@@ -174,7 +171,6 @@
             android:elevation="2dp">
 
             <RelativeLayout
-                android:id="@+id/Home_RelativeLayout_FindCommunity_TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true">
@@ -202,7 +198,6 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/Home_TextView_FindCommunity_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/Home_TextView_FindCommunity_Subtitle2"
@@ -228,7 +223,6 @@
 
     <!--뉴스피드 리스트 (재우가 이동 예정) -->
     <RelativeLayout
-        android:id="@+id/Home_RelativeLayout_NewsFeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Home_Title"

@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.implude.localcommunity.R
-import com.implude.localcommunity.ui.home.community.Community
-import com.implude.localcommunity.ui.home.community.CommunityRvAdapter
-import com.implude.localcommunity.ui.member.*
-import kotlinx.android.synthetic.main.community_list.view.*
-import kotlinx.android.synthetic.main.fragment_member.*
+import com.implude.localcommunity.ui.member.Member
+import com.implude.localcommunity.ui.member.MemberAdapter
+import com.implude.localcommunity.ui.member.ProfileAct
 import kotlinx.android.synthetic.main.fragment_member.view.*
+
 
 class MemberFragment : Fragment() {
 
@@ -48,11 +47,11 @@ class MemberFragment : Fragment() {
             profileIntent.putExtra("img", member.member_image)
             startActivity(profileIntent)
         }
-        
+
         val lm = LinearLayoutManager(requireContext())
-        member_list.layoutManager = lm
-        view.member_list.adapter = memberAdapter;
-        member_list.setHasFixedSize(true)
+        view.member_list.layoutManager = lm
+        view.member_list.adapter = memberAdapter
+        view.member_list.setHasFixedSize(true)
         return view
     }
 
