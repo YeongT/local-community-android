@@ -22,7 +22,7 @@ private const val REQUEST_GALLERY_IMAGE = 300
 
 class ArticleAddActivity : AppCompatActivity() {
     private val api: NewsFeedApi by lazy {
-        Network.retrofit.create(NewsFeedApi::class.java)
+        Network.getRetrofit(this).create(NewsFeedApi::class.java)
     }
     private val target: String = "5f2e51812acae6c5d32977f0"
     private var imageUrl: String = ""
