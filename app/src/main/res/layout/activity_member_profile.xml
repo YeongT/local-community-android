@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:id="@+id/member_membertext"
+        android:layout_width="wrap_content"
+        android:layout_height="67sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20sp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorMain"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/member_name_profileAct"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/ntsblack"
+            android:includeFontPadding="false"
+            android:text="@string/member"
+            android:textColor="@color/black"
+            android:textSize="45sp" />
+
+    </FrameLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/member_image_cardView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/member_membertext"
+        android:layout_centerHorizontal="true"
+        android:elevation="10dp"
+        app:cardCornerRadius="100dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:src="@drawable/arin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/member_role_profileAct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/member_image_cardView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="역할"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/registered_community"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/member_role_profileAct"
+        android:layout_marginTop="20dp"
+        android:text="가입된 거뮤니티"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registered_community">
+
+        <include layout="@layout/community_list" />
+    </LinearLayout>
+
+</RelativeLayout>

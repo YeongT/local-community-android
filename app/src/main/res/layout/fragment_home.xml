@@ -52,25 +52,7 @@
     </RelativeLayout>
 
     <!--커뮤니티 있을 때 레이아웃 -->
-    <RelativeLayout
-        android:id="@+id/Home_RelativeLayout_In_Community"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Home_Title"
-        android:visibility="gone">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Home_RecyclerView_CommunityList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@color/white"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/community_list_item" />
-
-    </RelativeLayout>
+    <include layout="@layout/community_list"/>
 
     <!--커뮤니티 없을 때 레이아웃 -->
     <RelativeLayout
@@ -128,7 +110,6 @@
             android:elevation="2dp">
 
             <RelativeLayout
-                android:id="@+id/Home_RelativeLayout_CreateCommunity_TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true">
@@ -156,7 +137,6 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/Home_TextView_CreateCommunity_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle2"
@@ -180,7 +160,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/Home_ImageButton_FindCommunity"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_below="@id/Home_ImageButton_CreateCommunity"
@@ -192,7 +171,6 @@
             android:elevation="2dp">
 
             <RelativeLayout
-                android:id="@+id/Home_RelativeLayout_FindCommunity_TitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true">
@@ -220,7 +198,6 @@
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/Home_TextView_FindCommunity_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/Home_TextView_FindCommunity_Subtitle2"
@@ -246,7 +223,6 @@
 
     <!--뉴스피드 리스트 (재우가 이동 예정) -->
     <RelativeLayout
-        android:id="@+id/Home_RelativeLayout_NewsFeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/Home_Title"

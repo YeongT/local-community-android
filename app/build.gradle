@@ -102,4 +102,5 @@ dependencies {
 
 // For BottomNavigationView from Material Components
     implementation 'com.google.android.material:material:1.2.1'
+
 }
