@@ -5,11 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.implude.localcommunity.R
-import com.implude.localcommunity.ui.dialog.startDialog
-import com.implude.localcommunity.ui.home.HomeActivity
 import com.implude.localcommunity.ui.login.LoginActivity
-import com.implude.localcommunity.ui.profile.ProfileActivity
-import com.implude.localcommunity.ui.search.SearchActivity
 import com.implude.localcommunity.ui.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_link.*
 
@@ -29,21 +25,6 @@ class LinkActivity : AppCompatActivity() {
         btn_test2.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-        }
-        btn_test3.setOnClickListener {
-            val intent = Intent(this, SearchActivity::class.java)
-            startActivity(intent)
-        }
-        btn_test4.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-        }
-        btn_test5.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
-        btn_test6.setOnClickListener {
-            startDialog("테스트 입니다")
         }
     }
 }

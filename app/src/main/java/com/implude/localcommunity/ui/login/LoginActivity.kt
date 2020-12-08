@@ -18,6 +18,8 @@ import com.implude.localcommunity.ui.dialog.startDialog
 import com.implude.localcommunity.ui.signup.SignUpActivity
 import com.implude.localcommunity.util.EMAIL_REGEX
 import com.implude.localcommunity.util.PASSWORD_REGEX
+import com.implude.localcommunity.util.decoded
+import com.implude.localcommunity.util.showToast
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -43,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
         )
     }
 
-    fun get() = sharedPreferences.getString(KEY_TOKEN, KEY_USER_JWT)
+    fun get() = sharedPreferences.getString(KEY_TOKEN, null)
     fun set(token: String) {
         sharedPreferences.edit { putString(KEY_TOKEN, token) }
     }
@@ -52,8 +54,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        checkUserJwtSaved()
         setUpViews()
+        checkUserJwtSaved()
     }
 
     private fun setUpViews() {
@@ -71,13 +73,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkUserJwtSaved() {
-        val token = get() ?: ""
+        val token = get() ?: "userJwt"
 
         Log.e("token", token)
-        if (token.isBlank()) startDialog("자동로그인 되지 않았습니다.")
+        if (token.isBlank() || token == "userJwt") showToast("자동로그인 되지 않았습니다.")
         else {
             Network.jwtToken = token
-            startDialog("자동로그인 성공했습니다.")
+            showToast("자동로그인 성공했습니다.")
+            Log.e("token_decoded", decoded(token).toString())
             finish()
         }
     }
@@ -89,22 +92,25 @@ class LoginActivity : AppCompatActivity() {
         if (!Pattern.matches(EMAIL_REGEX, id)) {
             startDialog(R.string.login_alert_id.toString())
         } else if (!Pattern.matches(PASSWORD_REGEX, pw)) {
-            startDialog(R.string.login_alert_pw.toString())
+
+            showToast(R.string.login_alert_pw)
         } else {
             lifecycleScope.launch { login(id, pw) }
         }
     }
 
     private fun loginSuccessAction(response: Response<ApiTokenResponseModel>) {
-        val userJwt = response.body()?.output?.token ?: throw Exception()
-        Log.e("jwt", userJwt)
-        startDialog(R.string.login_succeed_logintask.toString())
+        val userJwt = response.body()?.output?.token?.access ?: throw Exception()
+        val user = decoded(userJwt)
+        Log.e("jwt", user.toString())
+        showToast(R.string.login_succeed_logintask)
         set(userJwt)
         Network.jwtToken = userJwt
     }
 
     private suspend fun login(id: String, pw: String) {
-        val loginModel = UserLoginModel(id, pw)
+        val refreshToken: String = "refresh"
+        val loginModel = UserLoginModel(id, pw, refreshToken)
 
         try {
             val response = authApi.userLogin(loginModel).awaitResponse()
@@ -118,7 +124,10 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         } catch (e: Exception) {
+            Log.d("testing", "exception")
             e.printStackTrace()
         }
     }
+
+
 }
