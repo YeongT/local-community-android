@@ -33,8 +33,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_round"
-
         />
 </androidx.cardview.widget.CardView>
 
@@ -92,17 +90,6 @@
 
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/registered_community"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/community_list"
-        android:overScrollMode="never"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        >
-    </androidx.recyclerview.widget.RecyclerView>
+    <include layout="@layout/community_list" />
 
 </RelativeLayout>
