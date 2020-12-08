@@ -13,9 +13,9 @@ import com.implude.localcommunity.ui.article.add.ArticleAddActivity
 import com.implude.localcommunity.ui.community.create.CreateCommunityActivity
 import com.implude.localcommunity.ui.home.community.Community
 import com.implude.localcommunity.ui.home.community.CommunityRvAdapter
+import com.implude.localcommunity.ui.login.LoginActivity
 import com.implude.localcommunity.ui.main.new_feed.NewsFeed
 import com.implude.localcommunity.ui.main.new_feed.NewsFeedRecyclerViewAdapter
-import com.implude.localcommunity.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.community_list.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 

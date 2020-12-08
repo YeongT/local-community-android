@@ -57,6 +57,7 @@
         tools:text="커뮤니티 설명 " />
 
     <Button
+        android:id="@+id/search_navigate_next_button"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"
