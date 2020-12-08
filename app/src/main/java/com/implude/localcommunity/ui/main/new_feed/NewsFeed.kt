@@ -3,7 +3,6 @@ package com.implude.localcommunity.ui.main.new_feed
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-/* --- 안드로이드용 게시물 데이터 모델 --- */
 @Parcelize
 data class NewsFeed(
     val target: String,             // 커뮤니티 식별키
