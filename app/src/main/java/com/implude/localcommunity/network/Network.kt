@@ -1,5 +1,6 @@
 package com.implude.localcommunity.network
 
+import android.content.Context
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -8,17 +9,22 @@ import java.util.concurrent.TimeUnit
 private const val BASE_URL = "https://api.hakbong.me/"
 
 object Network {
-    var jwtToken: String = ""
 
-    val retrofit: Retrofit
-        get() = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .client(httpClient())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+    private lateinit var retrofit: Retrofit
 
-    private fun httpClient(): OkHttpClient = OkHttpClient.Builder().run {
-        addInterceptor(AuthInterceptor(jwtToken))
+    fun getRetrofit(context: Context): Retrofit {
+        if (!::retrofit.isInitialized) {
+            retrofit = Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .client(httpClient(context))
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        }
+        return retrofit
+    }
+
+    private fun httpClient(context: Context): OkHttpClient = OkHttpClient.Builder().run {
+        addInterceptor(AuthInterceptor(context))
         readTimeout(15, TimeUnit.SECONDS)
         writeTimeout(15, TimeUnit.SECONDS)
         build()

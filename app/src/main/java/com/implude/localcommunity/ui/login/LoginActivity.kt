@@ -3,57 +3,63 @@ package com.implude.localcommunity.ui.login
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.edit
 import androidx.lifecycle.lifecycleScope
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKeys
 import com.implude.localcommunity.R
 import com.implude.localcommunity.network.AuthApi
 import com.implude.localcommunity.network.Network
 import com.implude.localcommunity.network.models.ApiTokenResponseModel
 import com.implude.localcommunity.network.models.UserLoginModel
+import com.implude.localcommunity.ui.main.MainActivity
 import com.implude.localcommunity.ui.signup.SignUpActivity
-import com.implude.localcommunity.util.EMAIL_REGEX
-import com.implude.localcommunity.util.PASSWORD_REGEX
-import com.implude.localcommunity.util.showToast
+import com.implude.localcommunity.util.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.awaitResponse
+import java.util.*
 import java.util.regex.Pattern
 
-private const val KEY_TOKEN = "token"
-private const val KEY_USER_JWT = "userJwt"
-
 class LoginActivity : AppCompatActivity() {
+
     private val authApi: AuthApi by lazy {
-        Network.retrofit.create(AuthApi::class.java)
+        Network.getRetrofit(this).create(AuthApi::class.java)
     }
 
-    private val masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
-    private val sharedPreferences: SharedPreferences by lazy {
-        EncryptedSharedPreferences.create(
-            "security",
-            masterKeyAlias,
-            this,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-        )
-    }
-
-    fun get() = sharedPreferences.getString(KEY_TOKEN, KEY_USER_JWT)
-    fun set(token: String) {
-        sharedPreferences.edit { putString(KEY_TOKEN, token) }
-    }
+    private val database: SharedPreferences by lazy { createSharedPreference(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        checkUserJwtSaved()
+        validateJwtAccessToken()
         setUpViews()
+    }
+
+    private fun validateJwtAccessToken() {
+        val access: String = database.getString(KEY_ACCESS, "") ?: ""
+        val refresh: String = database.getString(KEY_ACCESS, "") ?: ""
+
+        lifecycleScope.launch {
+            if (access.isNotBlank()) {
+                val refreshExpireTime = JSONObject(decoded(refresh)).getLong("exp")
+                if (Date(System.currentTimeMillis()) >= Date(refreshExpireTime)) {
+                    val id = database.getString(USER_ID, "") ?: ""
+                    val pw = database.getString(USER_PW, "") ?: ""
+
+                    try {
+                        autoLogin(id, pw, authApi)
+                    } catch (err: Exception) {
+                        showToast("자동 로그인에 실패했습니다.\n 다시 로그인 해 주세요.")
+                        database.edit().remove(access).apply()
+                        database.edit().remove(refresh).apply()
+                    }
+                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                    finish()
+                }
+            }
+        }
     }
 
     private fun setUpViews() {
@@ -70,18 +76,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkUserJwtSaved() {
-        val token = get() ?: ""
-
-        Log.e("token", token)
-        if (token.isBlank()) showToast("자동로그인 되지 않았습니다.")
-        else {
-            Network.jwtToken = token
-            showToast("자동로그인 성공했습니다.")
-            finish()
-        }
-    }
-
     private fun checkValidation() {
         val id = Login_EditText_Id.text.toString()
         val pw = Login_EditText_Pwd.text.toString()
@@ -95,20 +89,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun loginSuccessAction(response: Response<ApiTokenResponseModel>) {
-        val userJwt = response.body()?.output?.token ?: throw Exception()
-        Log.e("jwt", userJwt)
-        showToast(R.string.login_succeed_logintask)
-        set(userJwt)
-        Network.jwtToken = userJwt
-    }
-
     private suspend fun login(id: String, pw: String) {
         val loginModel = UserLoginModel(id, pw)
 
         try {
             val response = authApi.userLogin(loginModel).awaitResponse()
-            Log.e("TEST_LOGIN", response.body().toString())
             when (response.code()) {
                 200 -> loginSuccessAction(response)
                 409 -> showToast(R.string.login_error_authfail)
@@ -121,4 +106,14 @@ class LoginActivity : AppCompatActivity() {
             e.printStackTrace()
         }
     }
+
+    private fun loginSuccessAction(response: Response<ApiTokenResponseModel>) {
+        val access = response.body()?.output?.token?.access ?: throw Exception()
+        val refresh = response.body()?.output?.token?.refresh ?: throw Exception()
+
+        showToast(R.string.login_succeed_logintask)
+        database.edit().putString(KEY_ACCESS, access).apply()
+        database.edit().putString(KEY_REFRESH, refresh).apply()
+    }
+
 }

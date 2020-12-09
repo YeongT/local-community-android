@@ -15,5 +15,12 @@ data class ApiTokenResponseModel(
 
 data class ApiResponseModelOutput(
     @SerializedName("token")
-    val token: String
+    val token: ApiResponseModelToken
+)
+
+data class ApiResponseModelToken(
+    @SerializedName("access")
+    val access: String,
+    @SerializedName("refresh")
+    val refresh: String
 )
