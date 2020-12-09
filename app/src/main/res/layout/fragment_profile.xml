@@ -28,13 +28,11 @@
                 android:elevation="13dp"/>
 
             <FrameLayout
-                android:id="@+id/profile_framelayout_username_and_underbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
                 <ImageView
-                    android:id="@+id/profile_imageview_username_underbar"
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
                     android:layout_gravity="bottom"
@@ -42,7 +40,6 @@
                     android:contentDescription="@null" />
 
                 <TextView
-                    android:id="@+id/profile_textview_username"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/ntsblack"
@@ -53,7 +50,6 @@
             </FrameLayout>
 
             <TextView
-                android:id="@+id/profile_textview_user_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="17dp"
@@ -74,7 +70,6 @@
             app:layout_constraintTop_toBottomOf="@+id/profile_relativelayout_userimage_layout">
 
             <TextView
-                android:id="@+id/profile_textview_user_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -85,7 +80,6 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/profile_button_change_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -101,7 +95,6 @@
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/profile_button_withdraw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -227,7 +220,6 @@
                 app:layout_constraintTop_toBottomOf="@id/profile_textview_user_gender" />
 
             <TextView
-                android:id="@+id/profile_textview_user_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ntsmedium"
@@ -239,7 +231,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/profile_textview_address" />
 
             <TextView
-                android:id="@+id/profile_textview_change_personal_information"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ntsblack"
@@ -253,7 +244,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-            android:id="@+id/profile_linearlayout_service_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -262,7 +252,6 @@
             app:layout_constraintTop_toBottomOf="@+id/profile_constraintlayout_personal_information_layout">
 
             <TextView
-                android:id="@+id/profile_textview_service"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -273,7 +262,6 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/profile_button_privacy_policy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -289,7 +277,6 @@
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/profile_button_check_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
@@ -305,7 +292,6 @@
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/profile_button_terms_of_use"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"

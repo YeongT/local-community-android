@@ -7,4 +7,6 @@ data class UserLoginModel(
     val email: String,
     @SerializedName("password")
     val password: String,
+    @SerializedName("refreshToken")
+    val refreshToken: String?
 )

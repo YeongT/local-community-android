@@ -40,7 +40,6 @@
                 tools:text="NewsFeed Title TextView 입니다."/>
 
             <TextView
-                android:id="@+id/Home_TextView_newsFeedUserLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Home_TextView_NewsFeedTitle"

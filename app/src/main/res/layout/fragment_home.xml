@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.fragment_home.HomeFragment">
 
     <!--상단 알림창 툴바 -->
@@ -52,13 +52,181 @@
     </RelativeLayout>
 
     <!--커뮤니티 있을 때 레이아웃 -->
+    <include layout="@layout/community_list"/>
+
+    <!--커뮤니티 없을 때 레이아웃 -->
     <RelativeLayout
-        android:visibility="gone"
-        android:id="@+id/Home_RelativeLayout_Community"
-        android:layout_below="@id/Home_Title"
+        android:id="@+id/Home_RelativeLayout_No_Community"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Home_RelativeLayout_TabBar">
+        android:layout_below="@id/Home_Title"
+        android:layout_marginTop="0dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/Home_ImageView_Empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:contentDescription="@null"
+            android:src="@drawable/community_empty" />
+
+        <TextView
+            android:id="@+id/Home_TextView_noCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Home_ImageView_Empty"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-35dp"
+            android:fontFamily="@font/ntsbold"
+            android:text="@string/no_community"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/Home_TextView_searchCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Home_TextView_noCommunity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-20dp"
+            android:fontFamily="@font/ntsblack"
+            android:text="@string/search_content"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:id="@+id/Home_ImageButton_CreateCommunity"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/Home_TextView_searchCommunity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="38dp"
+            android:background="@drawable/community_button"
+            android:elevation="2dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/Home_TextView_CreateCommunity_Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_create_subtitle1"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/Home_TextView_CreateCommunity_Subtitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle1"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="-15dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_create_subtitle2"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle2"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="-18dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_create_title"
+                    android:textColor="@color/black"
+                    android:textSize="23sp" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15sp"
+                android:contentDescription="@null"
+                android:elevation="-1dp"
+                android:src="@drawable/create_community_image" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/Home_ImageButton_CreateCommunity"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="38dp"
+            android:background="@drawable/community_button"
+            android:elevation="2dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:id="@+id/Home_TextView_FindCommunity_Subtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_find_subtitle1"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/Home_TextView_FindCommunity_Subtitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Home_TextView_FindCommunity_Subtitle1"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="-15dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_find_subtitle2"
+                    android:textColor="@color/gray"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Home_TextView_FindCommunity_Subtitle2"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="-18dp"
+                    android:fontFamily="@font/ntsblack"
+                    android:text="@string/community_find_title"
+                    android:textColor="@color/black"
+                    android:textSize="23sp" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15sp"
+                android:contentDescription="@null"
+                android:src="@drawable/find_community_image" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--뉴스피드 리스트 (재우가 이동 예정) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Home_Title"
+        android:visibility="gone">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/Home_RecyclerView_newsFeedList"
@@ -66,8 +234,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@color/white"
-            tools:listitem="@layout/news_feed_item"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/news_feed_item" />
 
         <RelativeLayout
             android:id="@+id/LoginTest"
@@ -121,179 +289,6 @@
                 android:includeFontPadding="false"
                 android:text="@string/new_article"
                 android:textColor="@color/white" />
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <!--커뮤니티 없을 때 레이아웃 -->
-    <RelativeLayout
-        android:id="@+id/Home_RelativeLayout_No_Community"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/Home_RelativeLayout_TabBar"
-        android:layout_below="@id/Home_Title"
-        android:visibility="visible"
-        android:layout_marginTop="0dp">
-
-        <ImageView
-            android:id="@+id/Home_ImageView_Empty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="40dp"
-            android:contentDescription="@null"
-            android:src="@drawable/community_empty" />
-
-        <TextView
-            android:id="@+id/Home_TextView_noCommunity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Home_ImageView_Empty"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-35dp"
-            android:fontFamily="@font/ntsbold"
-            android:text="@string/no_community"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/Home_TextView_searchCommunity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Home_TextView_noCommunity"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-20dp"
-            android:fontFamily="@font/ntsblack"
-            android:text="@string/search_content"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <RelativeLayout
-            android:id="@+id/Home_ImageButton_CreateCommunity"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_below="@id/Home_TextView_searchCommunity"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="38dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="38dp"
-            android:background="@drawable/community_button"
-            android:elevation="2dp">
-
-            <RelativeLayout
-                android:id="@+id/Home_RelativeLayout_CreateCommunity_TitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true">
-
-                <TextView
-                    android:id="@+id/Home_TextView_CreateCommunity_Subtitle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:fontFamily="@font/ntsblack"
-                    android:text="@string/community_create_subtitle1"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/Home_TextView_CreateCommunity_Subtitle2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle1"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="-15dp"
-                    android:fontFamily="@font/ntsblack"
-                    android:text="@string/community_create_subtitle2"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/Home_TextView_CreateCommunity_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/Home_TextView_CreateCommunity_Subtitle2"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="-18dp"
-                    android:fontFamily="@font/ntsblack"
-                    android:text="@string/community_create_title"
-                    android:textColor="@color/black"
-                    android:textSize="23sp" />
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="15sp"
-                android:contentDescription="@null"
-                android:elevation="-1dp"
-                android:src="@drawable/create_community_image" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/Home_ImageButton_FindCommunity"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_below="@id/Home_ImageButton_CreateCommunity"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="38dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="38dp"
-            android:background="@drawable/community_button"
-            android:elevation="2dp">
-
-            <RelativeLayout
-                android:id="@+id/Home_RelativeLayout_FindCommunity_TitleText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true">
-
-                <TextView
-                    android:id="@+id/Home_TextView_FindCommunity_Subtitle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:fontFamily="@font/ntsblack"
-                    android:text="@string/community_find_subtitle1"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/Home_TextView_FindCommunity_Subtitle2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/Home_TextView_FindCommunity_Subtitle1"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="-15dp"
-                    android:fontFamily="@font/ntsblack"
-                    android:text="@string/community_find_subtitle2"
-                    android:textColor="@color/gray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/Home_TextView_FindCommunity_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/Home_TextView_FindCommunity_Subtitle2"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="-18dp"
-                    android:fontFamily="@font/ntsblack"
-                    android:text="@string/community_find_title"
-                    android:textColor="@color/black"
-                    android:textSize="23sp" />
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="15sp"
-                android:contentDescription="@null"
-                android:src="@drawable/find_community_image" />
 
         </RelativeLayout>
 

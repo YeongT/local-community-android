@@ -17,8 +17,6 @@ class AuthInterceptor(context: Context) : Interceptor {
     }
 
     private val database = createSharedPreference(context)
-    private val access: String = database.getString(KEY_ACCESS, "") ?: ""
-    private val refresh: String = database.getString(KEY_REFRESH, "") ?: ""
 
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -32,19 +30,21 @@ class AuthInterceptor(context: Context) : Interceptor {
                 .contains("/group")
 
         return runBlocking {
+            val access: String = database.getString(KEY_ACCESS, "") ?: ""
+            val refresh: String = database.getString(KEY_REFRESH, "") ?: ""
             if (useJwtToken) {
                 authHeader = access
                 val accessExpireTime = JSONObject(decoded(access)).getLong("exp")
                 val refreshExpireTime = JSONObject(decoded(refresh)).getLong("exp")
-                if (Date(System.currentTimeMillis()) >= Date(refreshExpireTime)) {
+                if (Date(System.currentTimeMillis()) >= Date(refreshExpireTime * 1000)) {
                     val id = database.getString(USER_ID, "") ?: ""
                     val pw = database.getString(USER_PW, "") ?: ""
                     authHeader = try {
-                        autoLogin(id, pw, authApi)
+                        autoLogin(id, pw, refresh, authApi)
                     } catch (err: Exception) {
                         access
                     }
-                } else if (Date(System.currentTimeMillis()) >= Date(accessExpireTime))
+                } else if (Date(System.currentTimeMillis()) >= Date(accessExpireTime * 1000))
                     requestBuilder.addHeader("refreshToken", refresh)
             }
             chain.proceed(requestBuilder.addHeader("Authorization", authHeader).build())

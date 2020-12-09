@@ -3,6 +3,7 @@ package com.implude.localcommunity.util
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Base64
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.security.crypto.EncryptedSharedPreferences
@@ -33,6 +34,7 @@ fun Context.showToast(text: String) =
 fun decoded(JWTEncoded: String): String {
     return try {
         val split: List<String> = JWTEncoded.split("\\.".toRegex())
+        if (split.size < 2) return """{"exp":0}"""
         val decodedBytes = Base64.decode(split[1], Base64.URL_SAFE)
         String(decodedBytes, Charsets.UTF_8)
     } catch (e: UnsupportedEncodingException) {
@@ -52,9 +54,11 @@ fun createSharedPreference(context: Context): SharedPreferences =
         EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
     )
 
-suspend fun autoLogin(userId: String, userPw: String, authApi: AuthApi): String {
-    val loginModel = UserLoginModel(userId, userPw)
+suspend fun autoLogin(userId: String, userPw: String, refresh: String?, authApi: AuthApi): String {
+    val loginModel = UserLoginModel(userId, userPw, refresh)
     val response = authApi.userLogin(loginModel).awaitResponse()
-    if (response.code() == 200 && response.body()?.output?.token?.access !== null) return response.body()!!.output!!.token.access
-    else throw Error("Error : server responded correctly but accessToken body is invalid")
+    Log.e("Utils : autologin", (response.body() ?: "null").toString())
+    if (response.code() == 200 && response.body()?.output?.token?.access !== null) return response.body()!!.output!!.token!!.access
+    else throw Exception("Error : server responded correctly but accessToken body is invalid")
 }
+

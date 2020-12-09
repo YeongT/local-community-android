@@ -110,7 +110,6 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/Login_Button_GoogleLogin"
         android:layout_width="271dp"
         android:layout_height="40dp"
         android:layout_gravity="center"

@@ -39,25 +39,26 @@ class LoginActivity : AppCompatActivity() {
 
     private fun validateJwtAccessToken() {
         val access: String = database.getString(KEY_ACCESS, "") ?: ""
-        val refresh: String = database.getString(KEY_ACCESS, "") ?: ""
+        val refresh: String = database.getString(KEY_REFRESH, "") ?: ""
 
         lifecycleScope.launch {
             if (access.isNotBlank()) {
                 val refreshExpireTime = JSONObject(decoded(refresh)).getLong("exp")
-                if (Date(System.currentTimeMillis()) >= Date(refreshExpireTime)) {
-                    val id = database.getString(USER_ID, "") ?: ""
-                    val pw = database.getString(USER_PW, "") ?: ""
+                if (Date(System.currentTimeMillis()) >= Date(refreshExpireTime * 1000)) {
+                    val id = database.getString(USER_ID, "id") ?: "id"
+                    val pw = database.getString(USER_PW, "pw") ?: "id"
 
                     try {
-                        autoLogin(id, pw, authApi)
+                        autoLogin(id, pw, refresh, authApi)
+
                     } catch (err: Exception) {
                         showToast("자동 로그인에 실패했습니다.\n 다시 로그인 해 주세요.")
-                        database.edit().remove(access).apply()
-                        database.edit().remove(refresh).apply()
+                        database.edit().remove(KEY_ACCESS).apply()
+                        database.edit().remove(KEY_REFRESH).apply()
                     }
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                    finish()
                 }
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                finish()
             }
         }
     }
@@ -83,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
         if (!Pattern.matches(EMAIL_REGEX, id)) {
             showToast(R.string.login_alert_id)
         } else if (!Pattern.matches(PASSWORD_REGEX, pw)) {
+
             showToast(R.string.login_alert_pw)
         } else {
             lifecycleScope.launch { login(id, pw) }
@@ -90,12 +92,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private suspend fun login(id: String, pw: String) {
-        val loginModel = UserLoginModel(id, pw)
+        val refresh = database.getString(KEY_REFRESH, "")
+        val loginModel = UserLoginModel(id, pw, refresh)
 
         try {
             val response = authApi.userLogin(loginModel).awaitResponse()
             when (response.code()) {
-                200 -> loginSuccessAction(response)
+                200 -> loginSuccessAction(response, id, pw)
                 409 -> showToast(R.string.login_error_authfail)
                 412 -> showToast(R.string.login_error_invalid_format)
                 else -> {
@@ -107,13 +110,21 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun loginSuccessAction(response: Response<ApiTokenResponseModel>) {
+    private fun loginSuccessAction(
+        response: Response<ApiTokenResponseModel>,
+        id: String,
+        pw: String
+    ) {
         val access = response.body()?.output?.token?.access ?: throw Exception()
         val refresh = response.body()?.output?.token?.refresh ?: throw Exception()
 
         showToast(R.string.login_succeed_logintask)
+        database.edit().putString(USER_ID, id).apply()
+        database.edit().putString(USER_PW, pw).apply()
         database.edit().putString(KEY_ACCESS, access).apply()
         database.edit().putString(KEY_REFRESH, refresh).apply()
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
 }

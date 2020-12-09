@@ -6,7 +6,7 @@
     android:layout_height="80dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/search_item_image1"
+        android:id="@+id/Home_CardView_ImageSpace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/search_item_image"
+            android:id="@+id/Home_ImageView__CommunityImage"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:src="@drawable/group26"
@@ -29,29 +29,35 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/search_item_title"
+        android:id="@+id/Home_TextView_CommunityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
-        android:textSize="25sp"
+        android:fontFamily="@font/ntsbold"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/search_item_image1"
-        app:layout_constraintTop_toTopOf="@id/search_item_image1"
-        tools:text="It's example!" />
+        app:layout_constraintStart_toEndOf="@id/Home_CardView_ImageSpace"
+        app:layout_constraintTop_toTopOf="@id/Home_CardView_ImageSpace"
+        tools:text="커뮤니티 이름" />
 
     <TextView
-        android:id="@+id/search_item_explain"
+        android:id="@+id/Home_TextView_Description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:textColor="#D4D4D4"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/search_item_image1"
-        app:layout_constraintTop_toBottomOf="@id/search_item_title"
-        tools:text="It's example!" />
+        android:fontFamily="@font/ntsbold"
+        android:includeFontPadding="false"
+        android:textColor="@color/gray"
+        android:textSize="13sp"
+        app:layout_constraintStart_toEndOf="@id/Home_CardView_ImageSpace"
+        app:layout_constraintTop_toBottomOf="@id/Home_TextView_CommunityName"
+        tools:text="커뮤니티 설명 " />
 
     <Button
+        android:id="@+id/search_navigate_next_button"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="15dp"

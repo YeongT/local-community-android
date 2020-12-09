@@ -8,17 +8,17 @@ data class ApiTokenResponseModel(
     @SerializedName("bodymsg")
     val bodymsg: String,
     @SerializedName("output")
-    val output: ApiResponseModelOutput?,
+    val output: ApiResponseModelToken?,
     @SerializedName("error")
     val error: String?
 )
 
-data class ApiResponseModelOutput(
+data class ApiResponseModelToken(
     @SerializedName("token")
-    val token: ApiResponseModelToken
+    val token: ApiResponseModelOutput?,
 )
 
-data class ApiResponseModelToken(
+data class ApiResponseModelOutput(
     @SerializedName("access")
     val access: String,
     @SerializedName("refresh")
