@@ -13,10 +13,10 @@ import com.implude.localcommunity.ui.article.add.ArticleAddActivity
 import com.implude.localcommunity.ui.community.create.CreateCommunityActivity
 import com.implude.localcommunity.ui.home.community.Community
 import com.implude.localcommunity.ui.home.community.CommunityRvAdapter
+import com.implude.localcommunity.ui.login.LoginActivity
 import com.implude.localcommunity.ui.main.new_feed.NewsFeed
 import com.implude.localcommunity.ui.main.new_feed.NewsFeedRecyclerViewAdapter
-import com.implude.localcommunity.ui.login.LoginActivity
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.community_list.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 private const val REQUEST_NEW_ARTICLE = 100
@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                 )
             )
         }
-
+        //재우가 이동시킬 레이아웃 관련 코드
         view.LoginTest.setOnClickListener {
             val intent = Intent(context, LoginActivity::class.java)
             startActivity(intent)
@@ -71,6 +71,7 @@ class HomeFragment : Fragment() {
                 REQUEST_NEW_ARTICLE
             )
         }
+        //재우가 이동시킬 레이아웃 관련 코드
 
         view.Home_ImageView_noticeIcon.setOnClickListener {
             communityJoined = !communityJoined

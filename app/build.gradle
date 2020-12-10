@@ -8,7 +8,7 @@ def apiKeyPropertiesFile = rootProject.file("apikey.properties")
 def apiKeyProperties = new Properties()
 apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion '30.0.2'
 
     compileOptions {
@@ -59,7 +59,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.security:security-crypto:1.1.0-alpha02'
+    implementation 'androidx.security:security-crypto:1.1.0-alpha03'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     implementation 'android.arch.lifecycle:extensions:1.1.1'
@@ -97,9 +97,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.2"
 
 // For BottomNavigationView from Material Components
     implementation 'com.google.android.material:material:1.2.1'
+
 }

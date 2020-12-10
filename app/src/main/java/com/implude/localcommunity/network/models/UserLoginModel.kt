@@ -8,5 +8,5 @@ data class UserLoginModel(
     @SerializedName("password")
     val password: String,
     @SerializedName("refreshToken")
-    val refreshToken: String
+    val refreshToken: String?
 )
