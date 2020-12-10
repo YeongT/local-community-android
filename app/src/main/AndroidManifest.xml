@@ -12,6 +12,7 @@
         android:roundIcon="@drawable/applogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.community.join.JoinCommunityActivity" />
         <activity android:name=".ui.community.create.CreateCommunityActivity" />
         <activity android:name=".ui.main.MainActivity" />
         <activity android:name=".ui.member.ProfileAct" />
