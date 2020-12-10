@@ -32,7 +32,7 @@ private const val REQUEST_AUTO_COMPLETE = 1
 
 class SignUpActivity : AppCompatActivity() {
     private val api: AuthApi by lazy {
-        Network.retrofit.create(AuthApi::class.java)
+        Network.getRetrofit(this).create(AuthApi::class.java)
     }
     private var place = ""
 

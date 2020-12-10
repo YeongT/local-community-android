@@ -22,7 +22,7 @@ private const val REQUEST_GALLERY_IMAGE = 300
 
 class CreateCommunityActivity : AppCompatActivity() {
     private val api: CreateCommunityApi by lazy {
-        Network.retrofit.create(CreateCommunityApi::class.java)
+        Network.getRetrofit(this).create(CreateCommunityApi::class.java)
     }
     private var imageUrl: String = ""
 
